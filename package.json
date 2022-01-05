@@ -1,0 +1,23 @@
+{
+  "name": "sniper",
+  "version": "1.0.0",
+  "description": "A website for making a sniper",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arosity/Sniper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arosity/Sniper/issues"
+  },
+  "homepage": "https://github.com/Arosity/Sniper#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2"
+  }
+}
