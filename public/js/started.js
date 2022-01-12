@@ -1,6 +1,6 @@
 var url = new URL(window.location.href)
 var key = url.searchParams.get("key")
-if (key != null) {
+if (key != null) {  //Check Key
     CheckKey(key).then(res => {
         if (res) {
             StartSniper()
@@ -10,7 +10,7 @@ if (key != null) {
     })
 }
 
-if (document.cookie) {
+if (document.cookie) {  //Set Snipes
     var snipescookie = getCookie('snipes');
     var snipes = JSON.parse(snipescookie);
 } else {
@@ -29,21 +29,24 @@ if (document.cookie) {
 }
 
 
-cleannames={}
+cleannames = {}
 var chr = new XMLHttpRequest();
-chr.onreadystatechange = (e) => {
+chr.onreadystatechange = (e) => {       //Get Modes
     if (chr.readyState === 4) {
         cleannames = JSON.parse(chr.responseText);
-        
+
     }
 }; chr.open("GET", "/json/clean.json"); chr.send();
 
 const table = document.getElementById("usertable");
-
 const userinput = document.getElementById('userinput')
 userinput.addEventListener('keyup', UserInputFunction);
 
-for (var num in snipes) {
+cred = '#f77777'
+cyellow = '#e0f593'
+cgreen = '#8dd99d'
+
+for (var num in snipes) {           //Create Table
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -53,13 +56,10 @@ for (var num in snipes) {
     cell1.outerHTML = "<th> <button onclick=removerow(this) id='closebutton'> X </button></th>"
     cell2.innerHTML = snipes[num]['name'];
     cell2.classList.add('ign')
-
     cell3.innerHTML = "---";
     cell3.classList.add('game')
-
     cell4.innerHTML = "---";
     cell4.classList.add('mode')
-
     cell5.innerHTML = "---";
     cell5.classList.add('map')
 }
@@ -73,36 +73,31 @@ async function StartSniper(key) {
                     game = '---'
                     mode = '---'
                     map = '---'
-                    color = '#f77777'
+                    color = cred
                     return
                 }
                 game = '---'
                 mode = '---'
                 map = '---'
-                color = '#e0f593'
-                
+                color = cyellow
+
                 sgametype = session['gameType']
                 smode = session['mode']
                 smap = session['map']
-                console.log(snipes[num]['name']+"-----------")
-                console.log(sgametype)
-                console.log(smode)
-                console.log(smap)
 
                 game = cleannames[sgametype]['clean']
                 if (smode == 'LOBBY') {
-                    color = '#e0f593'
+                    color = cyellow
                     mode = 'Lobby'
                     return
                 }
-              
-                mode=cleannames[sgametype]['modes'][smode]['clean']
-                
-                if(!cleannames[sgametype]['modes'][smode]['nomap']){
-                    map=smap
+
+                mode = cleannames[sgametype]['modes'][smode]['clean']
+                if (!cleannames[sgametype]['modes'][smode]['nomap']) {
+                    map = smap
                 }
 
-                color = '#8dd99d'
+                color = cgreen
             })
             editrow(num, game, mode, map, color)
             await sleep(505)
@@ -140,32 +135,35 @@ function addrow(values) {
 }
 
 function removerow(value) {
-
     var num = value.parentNode.parentNode.rowIndex - 1
     table.deleteRow(num);
-
     snipes.splice(num, 1);
-
-    var json_str = JSON.stringify(snipes);
-    createCookie('snipes', json_str);
+    createCookie('snipes', JSON.stringify(snipes));
 }
 
-async function editrow(num, game, mode, map, color) {
+async function editrow(num, sgame, smode, smap, scolor) {
     num = parseInt(num)
-    table.rows[num].getElementsByClassName('game')[0].innerHTML = game
-    table.rows[num].getElementsByClassName('mode')[0].innerHTML = mode
-    table.rows[num].getElementsByClassName('map')[0].innerHTML = map
+    if (table.rows[num]) {
+        ign = table.rows[num].getElementsByClassName('ign')[0]
+        game = table.rows[num].getElementsByClassName('game')[0]
+        mode = table.rows[num].getElementsByClassName('mode')[0]
+        map = table.rows[num].getElementsByClassName('map')[0]
 
-    table.rows[num].getElementsByClassName('ign')[0].style.backgroundColor = color
-    table.rows[num].getElementsByClassName('game')[0].style.backgroundColor = color
-    table.rows[num].getElementsByClassName('mode')[0].style.backgroundColor = color
-    table.rows[num].getElementsByClassName('map')[0].style.backgroundColor = color
+        game.innerHTML = sgame
+        mode.innerHTML = smode
+        map.innerHTML = smap
+
+        game.style.backgroundColor = scolor
+        mode.style.backgroundColor = scolor
+        map.style.backgroundColor = scolor
+        ign.style.backgroundColor = scolor
+    }
 }
 
 async function UserInputFunction(e) {
     if (e.keyCode === 13) {
         user = e.target.value
-        e.target.value=""
+        e.target.value = ""
         await getUUID(user).then(res => {
             if (res) {
                 addrow({
@@ -264,6 +262,22 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-
-
+function RGBToHex(rgb) {
+    // Choose correct separator
+    let sep = rgb.indexOf(",") > -1 ? "," : " ";
+    // Turn "rgb(r,g,b)" into [r,g,b]
+    rgb = rgb.substr(4).split(")")[0].split(sep);
+  
+    let r = (+rgb[0]).toString(16),
+        g = (+rgb[1]).toString(16),
+        b = (+rgb[2]).toString(16);
+  
+    if (r.length == 1)
+      r = "0" + r;
+    if (g.length == 1)
+      g = "0" + g;
+    if (b.length == 1)
+      b = "0" + b;
+  
+    return "#" + r + g + b;
+  }
