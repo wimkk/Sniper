@@ -38,9 +38,6 @@ chr.onreadystatechange = (e) => {
     }
 }; chr.open("GET", "/json/clean.json"); chr.send();
 
-
-
-
 const table = document.getElementById("usertable");
 
 const userinput = document.getElementById('userinput')
@@ -87,11 +84,6 @@ async function StartSniper(key) {
                 sgametype = session['gameType']
                 smode = session['mode']
                 smap = session['map']
-
-                console.log("-----------")
-                console.log(sgametype)
-                console.log(smode)
-                console.log(smap)
 
                 game = cleannames[sgametype]['clean']
                 if (smode == 'LOBBY') {
@@ -141,10 +133,6 @@ function addrow(values) {
 
     cell5.innerHTML = "---";
     cell5.classList.add('map')
-
-
-    console.log(values['name'] + " added to sniper")
-    console.log(snipes)
 }
 
 function removerow(value) {
