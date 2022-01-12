@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>HYSNIPER</title>
+    <img src="https://i.ibb.co/JpMCzXS/image-removebg-preview-1.png" alt="HYSNIPER">
+</head>
+
+<body>
+    <div class="container">
+        <input id="source" maxlength="36" class="api-put" type="text" placeholder="Enter Your Api Key">
+        <div id="result"></div>
+    </div>
+    <footer>
+        <div class="container-footer">
+            <i style="display: flex; justify-content: center; color: black; font-size: 30px; margin-top: 15%;" class="fab fa-github-square"></i> <a style="text-decoration: none; text-align: center; color: black; font-family: 'Poppins', sans-serif;" href="/github">Github</a>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script>
+    var url = new URL(window.location.href)
+    var key = url.searchParams.get("key")
+    if (key != null) {
+        CheckKey(key).then(res => {
+            if (res) {
+                StartSniper()
+            } else {
+                window.location.replace("/")
+            }
+        })
+    }
+
+</script>
+<script src="/js/index.js"></script>

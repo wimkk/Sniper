@@ -1,0 +1,510 @@
+{
+  "QUAKECRAFT": {
+    "clean": "Quakecraft",
+    "modes": {
+      "normal": {
+        "clean": "Normal"
+      },
+      "teams": {
+        "clean": "Teams"
+      }
+    }
+  },
+  "WALLS": {
+    "clean": "Walls",
+    "modes": {
+      "normal": {
+        "clean": "Normal"
+      }
+    }
+  },
+  "PAINTBALL": {
+    "clean": "Paintball",
+    "modes": {
+      "normal": {
+        "clean": "Normal"
+      }
+    }
+  },
+  "SURVIVAL_GAMES": {
+    "clean": "Survival Games",
+    "modes": {
+      "solo_normal": {
+        "clean": "Solo"
+      },
+      "teams_normal": {
+        "clean": "Doubles"
+      }
+    }
+  },
+  "TNTGAMES": {
+    "clean": "TNT Games",
+    "modes": {
+      "BOWSPLEEF": {
+        "clean": "Bow Spleef"
+      },
+      "PVPRUN": {
+        "clean": "PVP Run"
+      },
+      "TNTRUN": {
+        "clean": "TNT Run"
+      },
+      "TNTAG": {
+        "clean": "TNT Tag"
+      },
+      "CAPTURE": {
+        "clean": "Wizards"
+      }
+    }
+  },
+  "VAMPIREZ": {
+    "clean": "VampireZ",
+    "modes": {
+      "normal": {
+        "clean": "Normal"
+      }
+    }
+  },
+  "WALLS3": {
+    "clean": "Mega Walls",
+    "modes": {
+      "standard": {
+        "clean": "Standard"
+      },
+      "face_off": {
+        "clean": "Face Off"
+      }
+    }
+  },
+  "ARCADE": {
+    "clean": "Arcade",
+    "modes": {
+      "DEFENDER": {
+        "clean": "Creeper Attack",
+        "nomap": true
+      },
+      "FARM_HUNT": {
+        "clean": "Farm Hunt"
+      },
+      "PARTY": {
+        "clean": "Party Games",
+        "nomap": true
+      },
+      "ZOMBIES_DEAD_END": {
+        "clean": "Zombies"
+      },
+      "ZOMBIES_BAD_BLOOD": {
+        "clean": "Zombies"
+      },
+      "ZOMBIES_ALIEN_ARCADIUM": {
+        "clean": "Zombies"
+      },
+      "HIDE_AND_SEEK_PROP_HUNT": {
+        "clean": "Hide and Seek"
+      },
+      "HIDE_AND_SEEK_PARTY_POOPER": {
+        "clean": "Hide and Seek"
+      },
+      "SANTA_SAYS": {
+        "clean": "Santa Says",
+        "nomap": true
+      },
+      "MINI_WALLS": {
+        "clean": "Mini Walls"
+      },
+      "DAYONE": {
+        "clean": "Blocking Dead",
+        "nomap": true
+      },
+      "HOLE_IN_THE_WALL": {
+        "clean": "Hole In The Wall",
+        "nomap": true
+      },
+      "SOCCER": {
+        "clean": "Football",
+        "nomap": true
+      },
+      "ONEINTHEQUIVER": {
+        "clean": "Bounty Hunters",
+        "nomap": true
+      },
+      "DRAW_THEIR_THING": {
+        "clean": "Pixel Painters",
+        "nomap": true
+      },
+      "PVP_CTW": {
+        "clean": "Capture The Wool"
+      },
+      "DRAGONWARS2": {
+        "clean": "Dragon Wars",
+        "nomap": true
+      },
+      "ENDER": {
+        "clean": "Ender Spleef"
+      },
+      "STARWARS": {
+        "clean": "Galaxy Wars",
+        "nomap": true
+      },
+      "THROW_OUT": {
+        "clean": "Throw Out",
+        "nomap": true
+      }
+    }
+  },
+  "ARENA": {
+    "clean": "Arena Brawl",
+    "modes": {
+      "1v1": {
+        "clean": "Solo"
+      },
+      "2v2": {
+        "clean": "Doubles"
+      },
+      "4v4": {
+        "clean": "Fours"
+      }
+    }
+  },
+  "UHC": {
+    "clean": {
+      "clean": "UHC Champions"
+    }
+  },
+  "MCGO": {
+    "clean": "Cops and Crims",
+    "modes": {
+      "normal": {
+        "clean": "Normal"
+      },
+      "deathmatch": {
+        "clean": "Deathmatch"
+      },
+      "normal_party": {
+        "clean": "Normal Party"
+      },
+      "deathmatch_party": {
+        "clean": "Deathmatch Party"
+      }
+    }
+  },
+  "BATTLEGROUND": {
+    "clean": "Warlords",
+    "modes": {
+      "tf_mini": {
+        "clean": "Capture The Flag"
+      },
+      "domination": {
+        "clean": "Domination"
+      },
+      "team_deathmatch": {
+        "clean": "Team Deathmatch"
+      }
+    }
+  },
+  "SUPER_SMASH": {
+    "clean": "Smash Heroes",
+    "modes": {
+      "solo_normal": {
+        "clean": "Solo Normal"
+      },
+      "2v2_normal": {
+        "clean": "Doubles Normal"
+      },
+      "teams_normal": {
+        "clean": "2v2v2 Normal"
+      },
+      "1v1_normal": {
+        "clean": "1v1"
+      },
+      "friends_normal": {
+        "clean": "Party of 4"
+      },
+      "solo_insane_tnt_madness": {
+        "clean": "Solo TNT Madness"
+      },
+      "teams_insane_tnt_madness": {
+        "clean": "Doubles TNT Madness"
+      },
+      "solo_insane_lucky": {
+        "clean": "Solo Lucky Blocks"
+      },
+      "teams_insane_lucky": {
+        "clean": "Doubles Lucky Blocks"
+      }
+    }
+  },
+  "GINGERBREAD": {
+    "clean": "Turbo Kart Racers",
+    "modes": {
+      "normal": {
+        "clean": "Normal"
+      }
+    }
+  },
+  "HOUSING": {
+    "clean": "Housing"
+  },
+  "SKYWARS": {
+    "clean": "SkyWars",
+    "modes": {
+      "solo_insane": {
+        "clean": "Solo Insane"
+      },
+      "solo_normal": {
+        "clean": "Solo Normal"
+      },
+      "teams_insane": {
+        "clean": "Doubles Insane"
+      },
+      "teams_normal": {
+        "clean": "Doubles Normal"
+      },
+      "mega_normal": {
+        "clean": "Mega"
+      },
+      "solo_insane_tnt_madness": {
+        "clean": "Solo TNT Madness"
+      },
+      "teams_insane_tnt_madness": {
+        "clean": "Doubles TNT Madness"
+      },
+      "solo_insane_lucky": {
+        "clean": "Solo Lucky Blocks"
+      },
+      "teams_insane_lucky": {
+        "clean": "Doubles Lucky Blocks"
+      }
+    }
+  },
+  "SPEED_UHC": {
+    "clean": "Speed UHC",
+    "modes": {
+      "solo_normal": {
+        "clean": "Solo"
+      },
+      "team_normal": {
+        "clean": "Doubles"
+      }
+    }
+  },
+  "LEGACY": {
+    "clean": "Classic Games"
+  },
+  "PROTOTYPE": {
+    "clean": "Prototype",
+    "modes": {
+      "PIXEL_PARTY": {
+        "clean": "Pixel Party"
+      },
+      "TOWERWARS_SOLO": {
+        "clean": "Solo Tower Wars"
+      },
+      "TOWERWARS_TEAM_OF_TWO": {
+        "clean": "Doubles Tower Wars"
+      },
+      "INVADERS": {
+        "clean": "Invaders"
+      }
+    }
+  },
+  "BEDWARS": {
+    "clean": "Bedwars",
+    "modes": {
+      "BEDWARS_EIGHT_ONE": {
+        "clean": "Solo"
+      },
+      "BEDWARS_EIGHT_TWO": {
+        "clean": "Doubles"
+      },
+      "BEDWARS_FOUR_THREE": {
+        "clean": "Triples"
+      },
+      "BEDWARS_FOUR_FOUR": {
+        "clean": "Fours"
+      },
+      "BEDWARS_TWO_FOUR": {
+        "clean": "4v4"
+      },
+      "BEDWARS_EIGHT_TWO_RUSH": {
+        "clean": "Doubles Rush"
+      },
+      "BEDWARS_FOUR_FOUR_RUSH": {
+        "clean": "Fours Rush"
+      }
+    }
+  },
+  "MURDER_MYSTERY": {
+    "clean": "Murder Mystery",
+    "modes": {
+      "MURDER_ASSASSINS": {
+        "clean": "Assasins"
+      },
+      "MURDER_CLASSIC": {
+        "clean": "Classic"
+      },
+      "MURDER_DOUBLE_UP": {
+        "clean": "Double Up"
+      },
+      "MURDER_INFECTION": {
+        "clean": "Infection"
+      }
+    }
+  },
+  "BUILD_BATTLE": {
+    "clean": "Build Battle",
+    "modes": {
+      "BUILD_BATTLE_SOLO_PRO": {
+        "clean": "Solo Pro"
+      },
+      "BUILD_BATTLE_SOLO_NORMAL": {
+        "clean": "Solo"
+      },
+      "BUILD_BATTLE_GUESS_THE_BUILD": {
+        "clean": "Guess The Build"
+      },
+      "BUILD_BATTLE_TEAMS_NORMAL": {
+        "clean": "Doubles"
+      },
+      "BUILD_BATTLE_CHRISTMAS_NEW_SOLO": {
+        "clean": "Solo Holiday"
+      },
+      "BUILD_BATTLE_CHRISTMAS_NEW_TEAMS": {
+        "clean": "Doubles Holiday"
+      }
+    }
+  },
+  "DUELS": {
+    "clean": "Duels",
+    "modes": {
+      "DUELS_PARKOUR_EIGHT": {
+        "clean": "Parkour"
+      },
+      "DUELS_SW_DUEL": {
+        "clean": "Solo Skywars"
+      },
+      "DUELS_SW_DOUBLES": {
+        "clean": "Solo Skywars"
+      },
+      "DUELS_CLASSIC_DUEL": {
+        "clean": "Classic"
+      },
+      "DUELS_BOXING_DUEL": {
+        "clean": "Boxing"
+      },
+      "DUELS_BOW_DUEL": {
+        "clean": "Bow"
+      },
+      "DUELS_POTION_DUEL": {
+        "clean": "Potion"
+      },
+      "DUELS_COMBO_DUEL": {
+        "clean": "Combo"
+      },
+      "DUELS_OP_DUEL": {
+        "clean": "Solo OP"
+      },
+      "DUELS_OP_DOUBLES": {
+        "clean": "Doubles OP"
+      },
+      "DUELS_DUEL_ARENA": {
+        "clean": "Duel Arena"
+      },
+      "DUELS_MW_DUEL": {
+        "clean": "Mega Walls"
+      },
+      "DUELS_MW_DOUBLES": {
+        "clean": "Doubles Mega Walls"
+      },
+      "DUELS_BLITZ_DUEL": {
+        "clean": "Blitz"
+      },
+      "DUELS_BOWSPLEEF_DUEL": {
+        "clean": "Bow Spleef"
+      },
+      "DUELS_SUMO_DUEL": {
+        "clean": "Sumo"
+      },
+      "DUELS_UHC_DUEL": {
+        "clean": "Solo UHC"
+      },
+      "DUELS_UHC_DOUBLES": {
+        "clean": "Doubles UHC"
+      },
+      "DUELS_UHC_FOUR": {
+        "clean": "Fours UHC"
+      },
+      "DUELS_UHC_MEETUP": {
+        "clean": "Meetup"
+      },
+      "DUELS_BRIDGE_DUEL": {
+        "clean": "Solo Bridge"
+      },
+      "DUELS_BRIDGE_DOUBLES": {
+        "clean": "Doubles Bridge"
+      },
+      "DUELS_BRIDGE_THREES": {
+        "clean": "Triples Bridge"
+      },
+      "DUELS_BRIDGE_FOUR": {
+        "clean": "Fours Bridge"
+      },
+      "DUELS_BRIDGE_2V2V2V2": {
+        "clean": "Four Doubles Bridge"
+      },
+      "DUELS_BRIDGE_3V3V3V3": {
+        "clean": "Four Triples Bridge"
+      },
+      "DUELS_CAPTURE_THREES": {
+        "clean": "Capture The Flag"
+      }
+    }
+  },
+  "SKYBLOCK": {
+    "clean": "SkyBlock",
+    "modes": {
+      "dynamic": {
+        "clean": "Private Island"
+      },
+      "mining_2": {
+        "clean": "Deep Caverns"
+      },
+      "dungeon_hub": {
+        "clean": "Dungeon Hub"
+      },
+      "mining_1": {
+        "clean": "Gold Mine"
+      },
+      "hub": {
+        "clean": "Hub"
+      },
+      "farming_1": {
+        "clean": "A Farming Island"
+      },
+      "foraging_1": {
+        "clean": "A Forest Island"
+      },
+      "combat_1": {
+        "clean": "Spider's Den"
+      },
+      "combat_2": {
+        "clean": "Blazing Fortress"
+      },
+      "combat_3": {
+        "clean": "The End"
+      }
+    }
+  },
+  "PIT": {
+    "clean": "Pit"
+  },
+  "REPLAY": {
+    "clean": "Replay"
+  },
+  "SMP": {
+    "clean": "SMP"
+  },
+  "MAIN": {
+    "clean": "Main"
+  }
+}

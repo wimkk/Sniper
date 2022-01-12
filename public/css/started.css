@@ -1,0 +1,97 @@
+* {
+    text-align: center;
+    background-color: rgb(72, 133, 245);
+  }
+  
+input {
+  margin-top: 5%;
+  color: rgb(0, 0, 0);
+  border: rgb(255, 255, 255) solid;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  height: 30px;
+}
+
+::placeholder {
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  opacity: 0.8;
+}
+
+
+img {
+  width: 30%;
+  height: 30%;
+  margin-top: 5%;
+}
+
+.info {
+  margin-top: 5%;
+  margin-left: 40.4%;
+}
+
+.tg {
+  border-collapse: collapse;
+  border-color: #aabcfe;
+  border-spacing: 0;
+}
+.tg td {
+  background-color: #e8edff;
+  border-color: #aabcfe;
+  border-style: solid;
+  border-width: 1px;
+  color: #669;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg th {
+  background-color: #b9c9fe;
+  border-color: #aabcfe;
+  border-style: solid;
+  border-width: 1px;
+  color: #039;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg .tg-baqh {
+  text-align: center;
+  vertical-align: top;
+}
+.tg .tg-status-on {
+  text-align: center;
+  vertical-align: top;
+  color: rgb(38, 170, 71);
+}
+.tg .tg-status-off {
+  text-align: center;
+  vertical-align: top;
+  color: red;
+}
+.tg .tg-username {
+  text-align: center;
+  vertical-align: top;
+}
+
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top;
+}
+
+.tg th close1 {
+  color: red;
+}
+
+#closebutton {
+  color: rgb(255, 255, 255); 
+  background-color: #e74545; 
+  border-color: #e74545 ; 
+  border-radius: 20%; 
+}
+
