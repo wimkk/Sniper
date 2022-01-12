@@ -496,7 +496,12 @@
     }
   },
   "PIT": {
-    "clean": "Pit"
+    "clean": "Pit",
+    "mods":{
+      "PIT":{
+        "clean":"Pit"
+      }
+    }
   },
   "REPLAY": {
     "clean": "Replay"
