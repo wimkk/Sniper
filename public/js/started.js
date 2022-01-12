@@ -84,6 +84,10 @@ async function StartSniper(key) {
                 sgametype = session['gameType']
                 smode = session['mode']
                 smap = session['map']
+                console.log(snipes[num]['name']+"-----------")
+                console.log(sgametype)
+                console.log(smode)
+                console.log(smap)
 
                 game = cleannames[sgametype]['clean']
                 if (smode == 'LOBBY') {

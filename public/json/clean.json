@@ -191,7 +191,7 @@
   "BATTLEGROUND": {
     "clean": "Warlords",
     "modes": {
-      "tf_mini": {
+      "ctf_mini": {
         "clean": "Capture The Flag"
       },
       "domination": {
