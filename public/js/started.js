@@ -53,7 +53,7 @@ for (var num in snipes) {           //Create Table
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    cell1.outerHTML = "<th> <button onclick=removerow(this) id='closebutton'> X </button></th>"
+    cell1.outerHTML = "<th class='closeMan'> <button onclick=removerow(this) id='closebutton'> X </button></th>"
     cell2.innerHTML = snipes[num]['name'];
     cell2.classList.add('ign')
     cell3.innerHTML = "---";
