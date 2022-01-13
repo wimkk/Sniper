@@ -1,8 +1,8 @@
 * {
-    text-align: center;
-    background-color: rgb(72, 133, 245);
-  }
-  
+  text-align: center;
+  background-color: rgb(72, 133, 245);
+}
+
 input {
   margin-top: 5%;
   color: rgb(0, 0, 0);
@@ -18,7 +18,6 @@ input {
   opacity: 0.8;
 }
 
-
 img {
   width: 30%;
   height: 30%;
@@ -27,7 +26,7 @@ img {
 
 .info {
   margin-top: 5%;
-  margin-left: 40.4%;
+  margin-left: 37%;
 }
 
 .tg {
@@ -89,9 +88,28 @@ img {
 }
 
 #closebutton {
-  color: rgb(255, 255, 255); 
-  background-color: #e74545; 
-  border-color: #e74545 ; 
-  border-radius: 20%; 
+  color: rgb(255, 255, 255);
+  background-color: #e74545;
+  border-color: #e74545;
+  border-radius: 20%;
 }
 
+.ign {
+  width: 100px;
+}
+
+.game {
+  width: 100px;
+}
+
+.mode {
+  width: 100px;
+}
+
+.map {
+  width: 100px;
+}
+
+.closeMan {
+  width: 0%;
+}
