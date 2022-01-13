@@ -69,16 +69,13 @@ async function StartSniper(key) {
         for (var num in snipes) {
             await getUSER(num).then(res => {
                 session = res["session"]
-                if (session['online'] == false) {
-                    game = '---'
-                    mode = '---'
-                    map = '---'
-                    color = cred
-                    return
-                }
                 game = '---'
                 mode = '---'
                 map = '---'
+                if (session['online'] == false) {
+                    color = cred
+                    return
+                }
                 color = cyellow
 
                 sgametype = session['gameType']
@@ -144,19 +141,43 @@ function removerow(value) {
 async function editrow(num, sgame, smode, smap, scolor) {
     num = parseInt(num)
     if (table.rows[num]) {
+        change = false
         ign = table.rows[num].getElementsByClassName('ign')[0]
         game = table.rows[num].getElementsByClassName('game')[0]
         mode = table.rows[num].getElementsByClassName('mode')[0]
         map = table.rows[num].getElementsByClassName('map')[0]
 
-        game.innerHTML = sgame
-        mode.innerHTML = smode
-        map.innerHTML = smap
+        dontplay = true
+        if (map.style.backgroundColor == "") {
+            dontplay = false
+        }
 
-        game.style.backgroundColor = scolor
-        mode.style.backgroundColor = scolor
-        map.style.backgroundColor = scolor
-        ign.style.backgroundColor = scolor
+        if (game.innerHTML.toString() != sgame.toString()) {
+            change = true
+        } else if (mode.innerHTML.toString() != smode.toString()) {
+            change = true
+        } else if (r2h(map.style.backgroundColor) != scolor.toString()) {
+            change = true
+        }
+
+        if (change == true) {
+            game.innerHTML = sgame
+            mode.innerHTML = smode
+            map.innerHTML = smap
+
+            game.style.backgroundColor = scolor
+            mode.style.backgroundColor = scolor
+            map.style.backgroundColor = scolor
+            ign.style.backgroundColor = scolor
+
+            if (dontplay) {
+                var audio = new Audio('/sounds/change.mp3');
+                audio.play();
+                change = false
+            }
+
+        }
+
     }
 }
 
@@ -262,22 +283,21 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function RGBToHex(rgb) {
-    // Choose correct separator
-    let sep = rgb.indexOf(",") > -1 ? "," : " ";
-    // Turn "rgb(r,g,b)" into [r,g,b]
-    rgb = rgb.substr(4).split(")")[0].split(sep);
-  
-    let r = (+rgb[0]).toString(16),
-        g = (+rgb[1]).toString(16),
-        b = (+rgb[2]).toString(16);
-  
-    if (r.length == 1)
-      r = "0" + r;
-    if (g.length == 1)
-      g = "0" + g;
-    if (b.length == 1)
-      b = "0" + b;
-  
-    return "#" + r + g + b;
-  }
+function componentFromStr(numStr, percent) {
+    var num = Math.max(0, parseInt(numStr, 10));
+    return percent ?
+        Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+}
+
+function r2h(rgb) {
+    var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+    var result, r, g, b, hex = "";
+    if ((result = rgbRegex.exec(rgb))) {
+        r = componentFromStr(result[1], result[2]);
+        g = componentFromStr(result[3], result[4]);
+        b = componentFromStr(result[5], result[6]);
+
+        hex = '#' + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    }
+    return hex;
+}
