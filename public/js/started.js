@@ -175,9 +175,7 @@ async function editrow(num, sgame, smode, smap, scolor) {
                 audio.play();
                 change = false
             }
-
         }
-
     }
 }
 
