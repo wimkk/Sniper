@@ -23,18 +23,4 @@
 </body>
 
 </html>
-<script>
-    var url = new URL(window.location.href)
-    var key = url.searchParams.get("key")
-    if (key != null) {
-        CheckKey(key).then(res => {
-            if (res) {
-                StartSniper()
-            } else {
-                window.location.replace("/")
-            }
-        })
-    }
-
-</script>
 <script src="/js/index.js"></script>

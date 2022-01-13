@@ -8,8 +8,8 @@ async function KeyInput(e) {
         await CheckKey(e.target.value).then(res => {
             if (res) {
                 result.innerHTML = "Valid Key"
-                key=e.target.value
-                window.location.replace("/?key="+key);
+                key = e.target.value
+                window.location.replace("/?key=" + key);
             } else {
                 result.innerHTML = "Invalid Key"
             }

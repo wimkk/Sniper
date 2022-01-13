@@ -1,19 +1,19 @@
 * {
   text-align: center;
-  background-color: rgb(72, 133, 245);
+  background-color: #4885f5;
 }
 
 input {
   margin-top: 5%;
-  color: rgb(0, 0, 0);
-  border: rgb(255, 255, 255) solid;
-  background-color: rgb(255, 255, 255);
+  color: #000000;
+  border: #ffffff solid;
+  background-color: #ffffff;
   border-radius: 4px;
   height: 30px;
 }
 
 ::placeholder {
-  color: rgb(0, 0, 0);
+  color: #000000;
   font-size: 17px;
   opacity: 0.8;
 }
@@ -63,16 +63,7 @@ img {
   text-align: center;
   vertical-align: top;
 }
-.tg .tg-status-on {
-  text-align: center;
-  vertical-align: top;
-  color: rgb(38, 170, 71);
-}
-.tg .tg-status-off {
-  text-align: center;
-  vertical-align: top;
-  color: red;
-}
+
 .tg .tg-username {
   text-align: center;
   vertical-align: top;
@@ -88,10 +79,11 @@ img {
 }
 
 #closebutton {
-  color: rgb(255, 255, 255);
+  color: #ffffff; 
   background-color: #e74545;
   border-color: #e74545;
   border-radius: 20%;
+
 }
 
 .ign {

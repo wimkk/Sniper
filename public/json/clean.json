@@ -243,7 +243,13 @@
     }
   },
   "HOUSING": {
-    "clean": "Housing"
+    "clean": "Housing",
+    "modes": {
+      "undefined": {
+        "clean": "---",
+        "nomap":true
+      }
+    }
   },
   "SKYWARS": {
     "clean": "SkyWars",
@@ -331,6 +337,10 @@
       },
       "BEDWARS_FOUR_FOUR_RUSH": {
         "clean": "Fours Rush"
+      },
+      "BEDWARS_PRACTICE": {
+        "clean": "Practice",
+        "nomap":true
       }
     }
   },
@@ -470,7 +480,12 @@
         "clean": "Deep Caverns"
       },
       "dungeon_hub": {
-        "clean": "Dungeon Hub"
+        "clean": "Dungeon Hub",
+        "nomap":true
+      },
+      "dungeon": {
+        "clean": "Dungeon",
+        "nomap":true
       },
       "mining_1": {
         "clean": "Gold Mine"
