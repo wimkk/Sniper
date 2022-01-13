@@ -1,8 +1,8 @@
 * {
-    text-align: center;
-    background-color: #4885f5;
-  }
-  
+  text-align: center;
+  background-color: #4885f5;
+}
+
 input {
   margin-top: 5%;
   color: #000000;
@@ -18,7 +18,6 @@ input {
   opacity: 0.8;
 }
 
-
 img {
   width: 30%;
   height: 30%;
@@ -27,7 +26,7 @@ img {
 
 .info {
   margin-top: 5%;
-  margin-left: 40.4%;
+  margin-left: 37%;
 }
 
 .tg {
@@ -81,8 +80,28 @@ img {
 
 #closebutton {
   color: #ffffff; 
-  background-color: #e74545; 
-  border-color: #e74545 ; 
-  border-radius: 20%; 
+  background-color: #e74545;
+  border-color: #e74545;
+  border-radius: 20%;
+
 }
 
+.ign {
+  width: 100px;
+}
+
+.game {
+  width: 100px;
+}
+
+.mode {
+  width: 100px;
+}
+
+.map {
+  width: 100px;
+}
+
+.closeMan {
+  width: 0%;
+}
