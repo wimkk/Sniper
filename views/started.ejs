@@ -16,20 +16,17 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="/assets/icon.ico" />
     <meta name="description" content="Track players on the Hypixel network using Hypixel's api">
-    
+
     <meta content="Hysnipe" property="og:title" />
-    <meta content="A website for tracking players on the Hypixel network using Hypixel's API" property="og:description" />
+    <meta content="A website for tracking players on the Hypixel network using Hypixel's API"
+        property="og:description" />
     <meta content="/" property="og:url" />
     <meta content="/assets/icon.ico" property="og:image" />
     <meta content="#c12c2c" data-react-helmet="true" name="theme-color" />
 </head>
+
 <body>
-    <div class="container-footer">
-        <i style="display: flex; justify-content: center; color: black; font-size: 30px; margin-top: 1px;"
-            class="fab fa-github-square"></i> <a
-            style="text-decoration: none; text-align: center; color: black; font-family: 'Poppins', sans-serif;"
-            href="/github">Github</a>
-    </div>
+
     <img src="https://i.ibb.co/JpMCzXS/image-removebg-preview-1.png" alt="HYSNIPER">
     <div class="container">
         <input maxlength="16" id="userinput" class="api-put" type="text" placeholder="Sniping IGN">
@@ -50,9 +47,29 @@
         </table>
     </div>
 
+
     <footer>
-        
+        <div class="container-footer" style="margin-left: 87%;">
+            <i style="display: flex; justify-content: center; color: black; font-size: 30px; margin-top: 150px;"
+                class="fab fa-github-square"></i> <a
+                style="text-decoration: none; text-align: center; color: black; font-family: 'Poppins', sans-serif;"
+                href="/github">Github</a>
+        </div>
+        <div class="theme-selector">
+            <h2 class="theme">Choose a theme: </h2>
+            <select name="theme" id="theme-select">
+                <option value="Default">Default</option>
+                <option value="Discord">Discord</option>
+            </select>
+        </div>
+        <div class="sound">
+            <input type="checkbox" id="soundbox" unchecked>
+            <label for="soundbox"></label>
+            <h2 class="soundbox">Enable Sound</h2>
+        </div>
     </footer>
+
 </body>
+
 </html>
 <script src="/js/started.js"></script>
