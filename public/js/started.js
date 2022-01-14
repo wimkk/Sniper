@@ -3,6 +3,12 @@ var key = url.searchParams.get("key")
 if (key != null) {  //Check Key
     CheckKey(key).then(res => {
         if (res) {
+
+            createCookie('key', JSON.stringify([
+                {
+                    key: key,
+                },
+            ]));
             StartSniper()
         } else {
             window.location.replace("/")
