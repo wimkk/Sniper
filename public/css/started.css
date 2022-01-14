@@ -26,7 +26,7 @@ img {
 
 .info {
   margin-top: 5%;
-  margin-left: 37%;
+  margin-left: 35%;
 }
 
 .tg {
@@ -79,11 +79,10 @@ img {
 }
 
 #closebutton {
-  color: #ffffff; 
+  color: #ffffff;
   background-color: #e74545;
   border-color: #e74545;
   border-radius: 20%;
-
 }
 
 .ign {
@@ -104,4 +103,8 @@ img {
 
 .closeMan {
   width: 0%;
+}
+
+.above {
+  width: 100px;
 }
