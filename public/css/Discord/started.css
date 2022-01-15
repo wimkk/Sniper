@@ -155,3 +155,19 @@ h2.theme {
   border: none;
   border-radius: 5px;
 }
+
+#online{
+  background-color: #48c06e;
+}
+
+#lobby{
+  background-color: #f3b64d;
+}
+
+#offline{
+  background-color: #c73e41;
+}
+
+#nothing{
+  background-color: #616974;
+}

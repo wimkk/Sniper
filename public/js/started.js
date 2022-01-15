@@ -86,12 +86,20 @@ for (var num in snipes) {           //Create Table
     cell1.outerHTML = "<th class='closeMan'> <button onclick=removerow(this) id='closebutton'> X </button></th>"
     cell2.innerHTML = snipes[num]['name'];
     cell2.classList.add('ign')
+    cell2.id='nothing'
+
     cell3.innerHTML = "---";
     cell3.classList.add('game')
+    cell3.id='nothing'
+
     cell4.innerHTML = "---";
     cell4.classList.add('mode')
+    cell4.id='nothing'
+
     cell5.innerHTML = "---";
     cell5.classList.add('map')
+    cell5.id='nothing'
+
 }
 
 async function StartSniper(key) {
@@ -103,10 +111,10 @@ async function StartSniper(key) {
                 mode = '---'
                 map = '---'
                 if (session['online'] == false) {
-                    color = cred
+                    color = 'offline'
                     return
                 }
-                color = cyellow
+                color = 'lobby'
 
                 sgametype = session['gameType']
                 smode = session['mode']
@@ -114,7 +122,7 @@ async function StartSniper(key) {
 
                 game = cleannames[sgametype]['clean']
                 if (smode == 'LOBBY') {
-                    color = cyellow
+                    color = 'lobby'
                     mode = 'Lobby'
                     return
                 }
@@ -124,7 +132,7 @@ async function StartSniper(key) {
                     map = smap
                 }
 
-                color = cgreen
+                color = 'online'
             })
             editrow(num, game, mode, map, color)
             await sleep(505)
@@ -150,15 +158,19 @@ function addrow(values) {
     cell1.outerHTML = "<th> <button onclick=removerow(this) id='closebutton'> X </button></th>"
     cell2.innerHTML = values['name'];
     cell2.classList.add('ign')
+    cell2.id='nothing'
 
     cell3.innerHTML = "---";
     cell3.classList.add('game')
+    cell3.id='nothing'
 
     cell4.innerHTML = "---";
     cell4.classList.add('mode')
+    cell4.id='nothing'
 
     cell5.innerHTML = "---";
     cell5.classList.add('map')
+    cell5.id='nothing'
 }
 
 function removerow(value) {
@@ -195,10 +207,10 @@ async function editrow(num, sgame, smode, smap, scolor) {
             mode.innerHTML = smode
             map.innerHTML = smap
 
-            game.style.backgroundColor = scolor
-            mode.style.backgroundColor = scolor
-            map.style.backgroundColor = scolor
-            ign.style.backgroundColor = scolor
+            game.id=scolor
+            mode.id=scolor
+            map.id=scolor
+            ign.id=scolor
 
             if (dontplay) {
                 var audio = new Audio('/sounds/change.mp3');
