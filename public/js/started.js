@@ -173,7 +173,10 @@ function addrow(values) {
     cell5.innerHTML = "---";
     cell5.classList.add('map')
     cell5.id='nothing'
-    new Audio('/sounds/'+theme+'/change.mp3').play();
+    if(soundenabled){
+        new Audio('/sounds/'+theme+'/add.mp3').play();
+    }
+    
 }
 
 function removerow(value) {
@@ -220,11 +223,9 @@ async function editrow(num, sgame, smode, smap, scolor) {
 
             if (play) {
                 if(soundenabled){
-                    new Audio('/sounds/'+theme+'/change.mp3').play();
-
+                    new Audio('/sounds/'+theme+'/add.mp3').play();
                 }
             }
-            
             change = false
         }
     }
