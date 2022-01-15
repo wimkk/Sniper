@@ -1,3 +1,28 @@
+themeselect=document.getElementById("theme-select")
+if(getCookie('theme')){
+    var theme = getCookie('theme');
+    themeselect.value=theme
+}else{
+    theme='Default'
+    createCookie('theme', ['Default']);
+}
+settheme(theme)
+themeselect.onchange=function() { 
+    settheme(this.value)
+} 
+
+function settheme(stheme){
+    createCookie('theme', [stheme])
+    var link = document.createElement( "link" );
+    link.href = '/css/'+stheme+'/started.css'
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    
+    document.getElementsByTagName( "html" )[0].appendChild( link );
+    
+    console.log(stheme)
+}
+
 var url = new URL(window.location.href)
 var key = url.searchParams.get("key")
 if (key != null) {  //Check Key
@@ -16,7 +41,7 @@ if (key != null) {  //Check Key
     })
 }
 
-if (document.cookie) {  //Set Snipes
+if (getCookie('snipes')) {  //Set Snipes
     var snipescookie = getCookie('snipes');
     var snipes = JSON.parse(snipescookie);
 } else {
@@ -30,19 +55,8 @@ if (document.cookie) {  //Set Snipes
             uuid: "8c1a7e32c5a342a29a103ff338a853f3",
         }
     ]
-    var json_str = JSON.stringify(snipes);
-    createCookie('snipes', json_str);
+    createCookie('snipes', JSON.stringify(snipes));
 }
-
-
-cleannames = {}
-var chr = new XMLHttpRequest();
-chr.onreadystatechange = (e) => {       //Get Modes
-    if (chr.readyState === 4) {
-        cleannames = JSON.parse(chr.responseText);
-
-    }
-}; chr.open("GET", "/json/clean.json"); chr.send();
 
 const table = document.getElementById("usertable");
 const userinput = document.getElementById('userinput')
@@ -51,6 +65,16 @@ userinput.addEventListener('keyup', UserInputFunction);
 cred = '#f77777'
 cyellow = '#e0f593'
 cgreen = '#8dd99d'
+
+
+cleannames = {}
+var chr = new XMLHttpRequest();
+chr.onreadystatechange = (e) => {
+    if (chr.readyState === 4) {
+        cleannames = JSON.parse(chr.responseText);
+
+    }
+}; chr.open("GET", "/json/clean.json"); chr.send();
 
 for (var num in snipes) {           //Create Table
     var row = table.insertRow(-1);
