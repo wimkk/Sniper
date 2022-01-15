@@ -189,16 +189,16 @@ async function editrow(num, sgame, smode, smap, scolor) {
         mode = table.rows[num].getElementsByClassName('mode')[0]
         map = table.rows[num].getElementsByClassName('map')[0]
 
-        dontplay = true
-        if (map.style.backgroundColor == "") {
-            dontplay = false
+        play = true
+        if (map.id == "nothing") {
+            play = false
         }
 
         if (game.innerHTML.toString() != sgame.toString()) {
             change = true
         } else if (mode.innerHTML.toString() != smode.toString()) {
             change = true
-        } else if (r2h(map.style.backgroundColor) != scolor.toString()) {
+        } else if (map.id != scolor.toString()) {
             change = true
         }
 
@@ -212,11 +212,12 @@ async function editrow(num, sgame, smode, smap, scolor) {
             map.id=scolor
             ign.id=scolor
 
-            if (dontplay) {
+            if (play) {
                 var audio = new Audio('/sounds/change.mp3');
                 audio.play();
-                change = false
             }
+            
+            change = false
         }
     }
 }
