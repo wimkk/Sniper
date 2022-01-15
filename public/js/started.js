@@ -8,6 +8,7 @@ if(getCookie('theme')){
 }
 settheme(theme)
 themeselect.onchange=function() { 
+    theme=this.value
     settheme(this.value)
 } 
 
@@ -61,6 +62,7 @@ if (getCookie('snipes')) {  //Set Snipes
 const table = document.getElementById("usertable");
 const userinput = document.getElementById('userinput')
 userinput.addEventListener('keyup', UserInputFunction);
+soundenabled=false
 
 cred = '#f77777'
 cyellow = '#e0f593'
@@ -171,6 +173,7 @@ function addrow(values) {
     cell5.innerHTML = "---";
     cell5.classList.add('map')
     cell5.id='nothing'
+    new Audio('/sounds/'+theme+'/change.mp3').play();
 }
 
 function removerow(value) {
@@ -178,6 +181,9 @@ function removerow(value) {
     table.deleteRow(num);
     snipes.splice(num, 1);
     createCookie('snipes', JSON.stringify(snipes));
+    if(soundenabled){
+        new Audio('/sounds/'+theme+'/remove.mp3').play();
+    }
 }
 
 async function editrow(num, sgame, smode, smap, scolor) {
@@ -213,8 +219,10 @@ async function editrow(num, sgame, smode, smap, scolor) {
             ign.id=scolor
 
             if (play) {
-                var audio = new Audio('/sounds/change.mp3');
-                audio.play();
+                if(soundenabled){
+                    new Audio('/sounds/'+theme+'/change.mp3').play();
+
+                }
             }
             
             change = false
@@ -342,3 +350,9 @@ function r2h(rgb) {
     }
     return hex;
 }
+
+const soundbox=document.getElementById("soundbox")
+
+soundbox.addEventListener('change', (event) => {
+  soundenabled=event.currentTarget.checked
+})
