@@ -100,10 +100,11 @@
         "clean": "Zombies"
       },
       "HIDE_AND_SEEK_PROP_HUNT": {
-        "clean": "Hide and Seek"
+        "clean": "Prop Hunt",
+        "nomap":true
       },
       "HIDE_AND_SEEK_PARTY_POOPER": {
-        "clean": "Hide and Seek"
+        "clean": "Party Pooper"
       },
       "SANTA_SAYS": {
         "clean": "Santa Says",
@@ -148,6 +149,10 @@
       },
       "THROW_OUT": {
         "clean": "Throw Out",
+        "nomap": true
+      },
+      "GRINCH_SIMULATOR_V2": {
+        "clean": "Grinch Simulator",
         "nomap": true
       }
     }
@@ -482,7 +487,8 @@
     "clean": "SkyBlock",
     "modes": {
       "dynamic": {
-        "clean": "Private Island"
+        "clean": "Private Island",
+        "nomap":true
       },
       "mining_2": {
         "clean": "Deep Caverns"
