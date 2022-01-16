@@ -341,6 +341,14 @@
       "BEDWARS_PRACTICE": {
         "clean": "Practice",
         "nomap":true
+      },
+      "BEDWARS_FOUR_FOUR_ULTIMATE": {
+        "clean": "Fours Ultimate",
+        "nomap":true
+      },
+      "BEDWARS_EIGHT_TWO_ULTIMATE": {
+        "clean": "Doubles Ultimate",
+        "nomap":true
       }
     }
   },
