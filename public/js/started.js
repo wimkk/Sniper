@@ -1,26 +1,26 @@
-themeselect=document.getElementById("theme-select")
-if(getCookie('theme')){
+themeselect = document.getElementById("theme-select")
+if (getCookie('theme')) {
     var theme = getCookie('theme');
-    themeselect.value=theme
-}else{
-    theme='Default'
+    themeselect.value = theme
+} else {
+    theme = 'Default'
     createCookie('theme', ['Default']);
 }
 settheme(theme)
-themeselect.onchange=function() { 
-    theme=this.value
+themeselect.onchange = function () {
+    theme = this.value
     settheme(this.value)
-} 
+}
 
-function settheme(stheme){
+function settheme(stheme) {
     createCookie('theme', [stheme])
-    var link = document.createElement( "link" );
-    link.href = '/css/'+stheme+'/started.css'
+    var link = document.createElement("link");
+    link.href = '/css/' + stheme + '/started.css'
     link.type = "text/css";
     link.rel = "stylesheet";
-    
-    document.getElementsByTagName( "html" )[0].appendChild( link );
-    
+
+    document.getElementsByTagName("html")[0].appendChild(link);
+
     console.log(stheme)
 }
 
@@ -39,17 +39,17 @@ CheckKey(key).then(res => {
         window.location.replace("/")
     }
 })
-    
+
 
 if (getCookie('snipes')) {  //Set Snipes
     var snipescookie = getCookie('snipes');
     var snipes = JSON.parse(snipescookie);
 } else {
     var snipes = {
-        'Arosity':{
-            uuid:'9c13cae91f344386a5a857dace6d765d'
+        'Arosity': {
+            uuid: '9c13cae91f344386a5a857dace6d765d'
         },
-        'Wimk':{
+        'Wimk': {
             uuid: "8c1a7e32c5a342a29a103ff338a853f3",
         }
     }
@@ -59,7 +59,7 @@ if (getCookie('snipes')) {  //Set Snipes
 const table = document.getElementById("usertable");
 const userinput = document.getElementById('userinput')
 userinput.addEventListener('keyup', UserInputFunction);
-soundenabled=false
+soundenabled = false
 
 cred = '#f77777'
 cyellow = '#e0f593'
@@ -76,7 +76,7 @@ chr.onreadystatechange = (e) => {
 
 for (var ign in snipes) {
     var row = table.insertRow(-1);
-    row.id=ign
+    row.id = ign
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
@@ -85,19 +85,19 @@ for (var ign in snipes) {
     cell1.outerHTML = "<th class='closeMan'> <button onclick=removerow(this) id='closebutton'> X </button></th>"
     cell2.innerHTML = ign;
     cell2.classList.add('ign')
-    cell2.id='nothing'
+    cell2.id = 'nothing'
 
     cell3.innerHTML = "---";
     cell3.classList.add('game')
-    cell3.id='nothing'
+    cell3.id = 'nothing'
 
     cell4.innerHTML = "---";
     cell4.classList.add('mode')
-    cell4.id='nothing'
+    cell4.id = 'nothing'
 
     cell5.innerHTML = "---";
     cell5.classList.add('map')
-    cell5.id='nothing'
+    cell5.id = 'nothing'
 
 }
 
@@ -144,8 +144,8 @@ async function StartSniper(key) {
 
 function addrow(values) {
 
-    snipes[values['name']]={}
-    snipes[values['name']].uuid=values['uuid']
+    snipes[values['name']] = {}
+    snipes[values['name']].uuid = values['uuid']
     console.log(snipes)
     if (Object.keys(snipes).length == 1) {
         StartSniper(key)
@@ -154,7 +154,7 @@ function addrow(values) {
     createCookie('snipes', json_str);
 
     var row = table.insertRow(0);
-    row.id=values['name']
+    row.id = values['name']
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
@@ -163,23 +163,23 @@ function addrow(values) {
     cell1.outerHTML = "<th> <button onclick=removerow(this) id='closebutton'> X </button></th>"
     cell2.innerHTML = values['name'];
     cell2.classList.add('ign')
-    cell2.id='nothing'
+    cell2.id = 'nothing'
 
     cell3.innerHTML = "---";
     cell3.classList.add('game')
-    cell3.id='nothing'
+    cell3.id = 'nothing'
 
     cell4.innerHTML = "---";
     cell4.classList.add('mode')
-    cell4.id='nothing'
+    cell4.id = 'nothing'
 
     cell5.innerHTML = "---";
     cell5.classList.add('map')
-    cell5.id='nothing'
-    if(soundenabled){
-        new Audio('/sounds/'+theme+'/add.mp3').play();
+    cell5.id = 'nothing'
+    if (soundenabled) {
+        new Audio('/sounds/' + theme + '/add.mp3').play();
     }
-    
+
 }
 
 function removerow(value) {
@@ -187,17 +187,17 @@ function removerow(value) {
     table.deleteRow(num);
     delete snipes[value.parentNode.parentNode.id]
     createCookie('snipes', JSON.stringify(snipes));
-    if(soundenabled){
-        new Audio('/sounds/'+theme+'/remove.mp3').play();
+    if (soundenabled) {
+        new Audio('/sounds/' + theme + '/remove.mp3').play();
     }
 }
 
 async function editrow(ign, sgame, smode, smap, scolor) {
-    
+
     if (document.getElementById(ign)) {
-        
-        
-        row=document.getElementById(ign)
+
+
+        row = document.getElementById(ign)
         ign = row.getElementsByClassName('ign')[0]
         game = row.getElementsByClassName('game')[0]
         mode = row.getElementsByClassName('mode')[0]
@@ -206,18 +206,18 @@ async function editrow(ign, sgame, smode, smap, scolor) {
         play = true
         if (map.id == "nothing") {
             play = false
-        }else{
-            paststatus=map.id
+        } else {
+            paststatus = map.id
         }
 
-        
+
         if (game.innerHTML.toString() != sgame.toString()) {
             change = true
         } else if (mode.innerHTML.toString() != smode.toString()) {
             change = true
         } else if (map.id != scolor.toString()) {
             change = true
-        }else{
+        } else {
             change = false
         }
 
@@ -226,17 +226,17 @@ async function editrow(ign, sgame, smode, smap, scolor) {
             mode.innerHTML = smode
             map.innerHTML = smap
 
-            game.id=scolor
-            mode.id=scolor
-            map.id=scolor
-            ign.id=scolor
+            game.id = scolor
+            mode.id = scolor
+            map.id = scolor
+            ign.id = scolor
 
             if (play) {
-                if(soundenabled){
-                    if(paststatus=="online"){
+                if (soundenabled) {
+                    if (paststatus == "online") {
                         scolor
                     }
-                    new Audio('/sounds/'+theme+'/add.mp3').play();
+                    new Audio('/sounds/' + theme + '/add.mp3').play();
                 }
             }
             change = false
@@ -247,26 +247,26 @@ async function editrow(ign, sgame, smode, smap, scolor) {
 async function UserInputFunction(e) {
     if (e.keyCode === 13) {
         user = e.target.value
-        if(user.length>=3){
+        if (user.length >= 3) {
             await getUUID(user).then(res => {
                 if (res) {
-                    if(!snipes.hasOwnProperty(res['username'])){
+                    if (!snipes.hasOwnProperty(res['username'])) {
                         addrow({
                             name: res['username'],
                             uuid: res['uuid'],
                         })
                         e.target.value = ""
-                    }else{
-                        console.log(res['username']+" already exists")
+                    } else {
+                        console.log(res['username'] + " already exists")
                     }
                 } else {
                     console.log(user + " was not found")
                 }
             })
-        }else{
+        } else {
             console.log("That username is to short")
         }
-        
+
     }
 }
 
@@ -374,8 +374,8 @@ function r2h(rgb) {
     return hex;
 }
 
-const soundbox=document.getElementById("soundbox")
+const soundbox = document.getElementById("soundbox")
 
 soundbox.addEventListener('change', (event) => {
-  soundenabled=event.currentTarget.checked
+    soundenabled = event.currentTarget.checked
 })
