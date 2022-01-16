@@ -24,14 +24,12 @@ img {
   margin-top: 20%;
 }
 
-
 h2.soundbox {
   font-family: "Poppins", sans-serif;
   background-color: white;
   margin-top: 11%;
   vertical-align: middle;
 }
-
 
 .theme-selector {
   display: flex;

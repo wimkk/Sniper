@@ -20,8 +20,6 @@ function settheme(stheme) {
     link.rel = "stylesheet";
 
     document.getElementsByTagName("html")[0].appendChild(link);
-
-    console.log(stheme)
 }
 
 var url = new URL(window.location.href)
@@ -190,7 +188,7 @@ function removerow(value) {
 }
 
 async function editrow(ign, sgame, smode, smap, scolor) {
-  
+
     if (document.getElementById(ign)) {
 
 
@@ -207,7 +205,7 @@ async function editrow(ign, sgame, smode, smap, scolor) {
             paststatus = map.id
         }
 
-        
+
         if (game.innerHTML.toString() != sgame.toString()) {
             change = true
         } else if (mode.innerHTML.toString() != smode.toString()) {
@@ -217,12 +215,12 @@ async function editrow(ign, sgame, smode, smap, scolor) {
         } else {
             change = false
         }
-        
+
         if (change == true) {
             game.innerHTML = sgame
             mode.innerHTML = smode
             map.innerHTML = smap
-            
+
             game.id = scolor
             mode.id = scolor
             map.id = scolor
@@ -230,19 +228,17 @@ async function editrow(ign, sgame, smode, smap, scolor) {
 
             if (soundenabled) {
                 if (play) {
-                    if(paststatus=="offline"){
+                    if (paststatus == "offline") {
                         new Audio('/sounds/' + theme + '/connect.mp3').play();
-                    }else if(scolor=="offline"){
+                    } else if (scolor == "offline") {
                         new Audio('/sounds/' + theme + '/disconnect.mp3').play();
-                    }else if(scolor=="online"){
+                    } else if (scolor == "online") {
                         new Audio('/sounds/' + theme + '/join.mp3').play();
-                    }else if(scolor=="lobby"){
-                        if(paststatus=="online"){
+                    } else if (scolor == "lobby") {
+                        if (paststatus == "online") {
                             new Audio('/sounds/' + theme + '/leave.mp3').play();
                         }
-                        
                     }
-                    
                 }
             }
             change = false
@@ -293,12 +289,12 @@ async function getUSER(num) {
         xhr.onreadystatechange = (e) => {
             if (xhr.readyState === 4) {
                 a = JSON.parse(xhr.responseText)
-                if(a['success']==false){
-                    if(a['cause']=='Invalid API key'){
+                if (a['success'] == false) {
+                    if (a['cause'] == 'Invalid API key') {
                         eraseCookie('key')
                         window.location.replace("/")
-                    }                
-                    
+                    }
+
                 }
                 resolve(a)
 
@@ -374,8 +370,8 @@ function getCookie(c_name) {
     return "";
 }
 
-function eraseCookie(name) {   
-    document.cookie = name+'=; Max-Age=-99999999;';  
+function eraseCookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
 }
 
 function sleep(ms) {

@@ -5,13 +5,13 @@ const app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
-    res.set('Access-Control-Allow-Origin','*')
-    if(!req.query.key){
+    res.set('Access-Control-Allow-Origin', '*')
+    if (!req.query.key) {
         res.render('index.ejs', {})
-    }else{
-        if (/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)){
+    } else {
+        if (/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)) {
             res.render('started.ejs', {})
-        } else{
+        } else {
             res.redirect('/')
         }
     }
