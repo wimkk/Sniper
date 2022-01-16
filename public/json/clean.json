@@ -505,7 +505,8 @@
         "clean": "Gold Mine"
       },
       "hub": {
-        "clean": "Hub"
+        "clean": "Hub",
+        "nomap":true
       },
       "farming_1": {
         "clean": "A Farming Island"
