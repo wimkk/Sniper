@@ -104,7 +104,6 @@ for (var ign in snipes) {
 async function StartSniper(key) {
     while (Object.keys(snipes).length > 0) {
         for (var ign in snipes) {
-            console.log(ign)
             await getUSER(ign).then(res => {
                 session = res["session"]
                 game = '---'
@@ -119,9 +118,7 @@ async function StartSniper(key) {
                 sgametype = session['gameType']
                 smode = session['mode']
                 smap = session['map']
-                console.log(sgametype)
-                console.log(smode)
-                console.log(smap)
+
                 game = cleannames[sgametype]['clean']
                 if (smode == 'LOBBY') {
                     color = 'lobby'
@@ -246,27 +243,36 @@ async function editrow(ign, sgame, smode, smap, scolor) {
 
 async function UserInputFunction(e) {
     if (e.keyCode === 13) {
+        document.getElementById('userinput').disabled = true
         user = e.target.value
-        if (user.length >= 3) {
-            await getUUID(user).then(res => {
-                if (res) {
-                    if (!snipes.hasOwnProperty(res['username'])) {
-                        addrow({
-                            name: res['username'],
-                            uuid: res['uuid'],
-                        })
-                        e.target.value = ""
-                    } else {
-                        console.log(res['username'] + " already exists")
-                    }
-                } else {
-                    console.log(user + " was not found")
-                }
-            })
-        } else {
-            console.log("That username is to short")
-        }
+        if (/^[0-9a-zA-Z_]*$/.test(user)) {
+            if (!JSON.stringify(snipes).toLowerCase().includes('"' + user.toLowerCase() + '"')) {
 
+                if (user.length >= 3) {
+                    await getUUID(user).then(res => {
+                        if (res) {
+
+                            addrow({
+                                name: res['username'],
+                                uuid: res['uuid'],
+                            })
+                            e.target.value = ""
+
+                        } else {
+                            console.log(user + " was not found")
+                        }
+                    })
+                } else {
+                    console.log("That username is to short")
+                }
+
+            } else {
+                console.log(user + " already exists")
+            }
+        } else {
+            console.log("Invalid name")
+        }
+        document.getElementById('userinput').disabled = false
     }
 }
 
