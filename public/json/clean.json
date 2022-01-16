@@ -101,7 +101,7 @@
       },
       "HIDE_AND_SEEK_PROP_HUNT": {
         "clean": "Prop Hunt",
-        "nomap":true
+        "nomap": true
       },
       "HIDE_AND_SEEK_PARTY_POOPER": {
         "clean": "Party Pooper"
@@ -252,7 +252,7 @@
     "modes": {
       "undefined": {
         "clean": "---",
-        "nomap":true
+        "nomap": true
       }
     }
   },
@@ -345,15 +345,15 @@
       },
       "BEDWARS_PRACTICE": {
         "clean": "Practice",
-        "nomap":true
+        "nomap": true
       },
       "BEDWARS_FOUR_FOUR_ULTIMATE": {
         "clean": "Fours Ultimate",
-        "nomap":true
+        "nomap": true
       },
       "BEDWARS_EIGHT_TWO_ULTIMATE": {
         "clean": "Doubles Ultimate",
-        "nomap":true
+        "nomap": true
       }
     }
   },
@@ -488,53 +488,66 @@
     "modes": {
       "dynamic": {
         "clean": "Private Island",
-        "nomap":true
+        "nomap": true
       },
       "mining_2": {
-        "clean": "Deep Caverns"
+        "clean": "Deep Caverns",
+        "nomap": true
       },
       "dungeon_hub": {
         "clean": "Dungeon Hub",
-        "nomap":true
+        "nomap": true
       },
       "dungeon": {
         "clean": "Dungeon",
-        "nomap":true
+        "nomap": true
       },
       "mining_1": {
-        "clean": "Gold Mine"
+        "clean": "Gold Mine",
+        "nomap": true
       },
       "hub": {
         "clean": "Hub",
-        "nomap":true
+        "nomap": true
       },
       "farming_1": {
-        "clean": "A Farming Island"
+        "clean": "A Farming Island",
+        "nomap": true
       },
       "foraging_1": {
-        "clean": "A Forest Island"
+        "clean": "A Forest Island",
+        "nomap": true
       },
       "combat_1": {
-        "clean": "Spider's Den"
+        "clean": "Spider's Den",
+        "nomap": true
       },
       "combat_2": {
-        "clean": "Blazing Fortress"
+        "clean": "Blazing Fortress",
+        "nomap": true
       },
       "combat_3": {
-        "clean": "The End"
+        "clean": "The End",
+        "nomap": true
       }
     }
   },
   "PIT": {
     "clean": "Pit",
-    "mods":{
-      "PIT":{
-        "clean":"Pit"
+    "modes": {
+      "PIT": {
+        "clean": "Pit"
       }
     }
   },
   "REPLAY": {
-    "clean": "Replay"
+    "clean": "Replay",
+    "modes": {
+      "BASE": {
+        "clean": "---",
+        "nomap": true
+      }
+    }
   },
   "SMP": {
     "clean": "SMP"
@@ -542,4 +555,4 @@
   "MAIN": {
     "clean": "Main"
   }
-}
+  }
