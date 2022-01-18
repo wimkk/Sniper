@@ -1,26 +1,14 @@
-themeselect = document.getElementById("theme-select")
-if (getCookie('theme')) {
-    var theme = getCookie('theme');
-    themeselect.value = theme
-} else {
-    theme = 'Default'
-    createCookie('theme', ['Default']);
-}
-settheme(theme)
-themeselect.onchange = function () {
-    theme = this.value
-    settheme(this.value)
-}
-
-function settheme(stheme) {
-    createCookie('theme', [stheme])
+themeselect=document.getElementById("theme-select")
+themeselect.value=getCookie('theme')
+themeselect.onchange=function() { 
+    createCookie('theme', [this.value])
     var link = document.createElement("link");
-    link.href = '/css/' + stheme + '/started.css'
+    link.href = '/css/' + this.value + '/started.css'
     link.type = "text/css";
     link.rel = "stylesheet";
-
     document.getElementsByTagName("html")[0].appendChild(link);
-}
+} 
+
 
 var url = new URL(window.location.href)
 var key = url.searchParams.get("key")

@@ -1,27 +1,13 @@
 themeselect=document.getElementById("theme-select")
-if(getCookie('theme')){
-    var theme = getCookie('theme');
-    themeselect.value=theme
-}else{
-    theme='Default'
-    createCookie('theme', ['Default']);
-}
-settheme(theme)
+themeselect.value=getCookie('theme')
 themeselect.onchange=function() { 
-    settheme(this.value)
-} 
-
-function settheme(stheme){
-    createCookie('theme', [stheme])
-    var link = document.createElement( "link" );
-    link.href = '/css/'+stheme+'/started.css'
+    createCookie('theme', [this.value])
+    var link = document.createElement("link");
+    link.href = '/css/' + this.value + '/started.css'
     link.type = "text/css";
     link.rel = "stylesheet";
-    
-    document.getElementsByTagName( "html" )[0].appendChild( link );
-    
-    console.log(stheme)
-}
+    document.getElementsByTagName("html")[0].appendChild(link);
+} 
 
 const source = document.getElementById('source')
 source.addEventListener('propertychange', KeyInput);

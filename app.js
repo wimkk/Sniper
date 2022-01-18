@@ -1,16 +1,24 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*')
+    theme=req.cookies.theme
     if (!req.query.key) {
-        res.render('index.ejs', {})
+        res.render('index.ejs', {
+            theme:theme,
+            type:'index'
+        })
     } else {
         if (/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)) {
-            res.render('started.ejs', {})
+            res.render('started.ejs', {
+                theme:theme,
+                type:'started'
+            })
         } else {
             res.redirect('/')
         }
