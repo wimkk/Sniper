@@ -28,16 +28,16 @@ To run the website you need [Git](https://git-scm.com) to clone the repository (
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/Arosity/Sniper.git
+git clone https://github.com/Arosity/Hysnipe.git
 
 # Go into the repository
-$ cd Sniper
+cd Sniper
 
 # Install dependencies
-$ npm install
+npm install
 
 # Run the app
-$ node app.js
+node app.js
 ```
 
 ## FAQ
@@ -50,7 +50,7 @@ $ node app.js
     Will using this website get me banned from Hypixel?
   </h2>
   <h4>
-  Using this website itself will NOT get you banned itself. However, using it streamsnipe may count as "Trolling" which would result in breaking <a href="https://hypixel.net/hypixel-rules/#rule-1">Hypixel's Respect All Players rule</a>
+  Using this website itself will NOT get you banned itself. However, using it to streamsnipe may count as "Trolling" which would result in breaking <a href="https://hypixel.net/hypixel-rules/#rule-1">Hypixel's Respect All Players rule</a>
   </h4>
 </div>
 
