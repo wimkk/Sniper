@@ -1,9 +1,12 @@
 themeselect=document.getElementById("theme-select")
-themeselect.value=getCookie('theme')
+if(getCookie('theme')){
+    themeselect.value=getCookie('theme')
+}
+
 themeselect.onchange=function() { 
     createCookie('theme', [this.value])
     var link = document.createElement("link");
-    link.href = '/css/' + this.value + '/started.css'
+    link.href = '/css/' + this.value + '/index.css'
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("html")[0].appendChild(link);

@@ -7,21 +7,24 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
-    theme=req.cookies.theme
+    if(req.cookies.theme){
+        theme=req.cookies.theme
+    }else{
+        theme='Default'
+    }
+    
     if (!req.query.key) {
         res.render('index.ejs', {
             theme:theme,
             type:'index'
         })
-    } else {
-        if (/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)) {
-            res.render('started.ejs', {
-                theme:theme,
-                type:'started'
-            })
-        } else {
-            res.redirect('/')
-        }
+    } else if(/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)){
+        res.render('started.ejs', {
+            theme:theme,
+            type:'started'
+        })
+    }else{
+        res.redirect('/')
     }
 })
 
