@@ -16,12 +16,14 @@ app.get('/', async (req, res) => {
     if (!req.query.key) {
         res.render('index.ejs', {
             theme:theme,
-            type:'index'
+            type:'index',
+            version:'V0.6'
         })
     } else if(/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)){
         res.render('started.ejs', {
             theme:theme,
-            type:'started'
+            type:'started',
+            version:'V0.6'
         })
     }else{
         res.redirect('/')
