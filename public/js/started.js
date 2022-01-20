@@ -1,5 +1,10 @@
-themeselect=document.getElementById("theme-select")
-themeselect.value=getCookie('theme')
+const themeselect=document.getElementById("theme-select")
+if(getCookie('theme')){
+    themeselect.value=getCookie('theme')
+}else{
+    themeselect.value='Default'
+}
+
 themeselect.onchange=function() { 
     createCookie('theme', [this.value])
     var link = document.createElement("link");
@@ -68,7 +73,14 @@ for (var ign in snipes) {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    cell1.outerHTML = "<th class='closeMan'> <button onclick=removerow(this) id='closebutton'> X </button></th>"
+
+    cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button>";
+    cell1.classList.add('close-th')
+
+    cell2.innerHTML = ign;
+    cell2.classList.add('ign')
+    cell2.id = 'nothing'
+
     cell2.innerHTML = ign;
     cell2.classList.add('ign')
     cell2.id = 'nothing'
@@ -136,14 +148,17 @@ function addrow(values) {
     var json_str = JSON.stringify(snipes);
     createCookie('snipes', json_str);
 
-    var row = table.insertRow(0);
+    var row = table.insertRow(-1);
     row.id = values['name']
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    cell1.outerHTML = "<th> <button onclick=removerow(this) id='closebutton'> X </button></th>"
+    
+    cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button>";
+    cell1.classList.add('close-th')
+
     cell2.innerHTML = values['name'];
     cell2.classList.add('ign')
     cell2.id = 'nothing'
@@ -166,7 +181,7 @@ function addrow(values) {
 }
 
 function removerow(value) {
-    var num = value.parentNode.parentNode.rowIndex - 1
+    var num = value.parentNode.parentNode.rowIndex 
     table.deleteRow(num);
     delete snipes[value.parentNode.parentNode.id]
     createCookie('snipes', JSON.stringify(snipes));
