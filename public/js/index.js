@@ -1,18 +1,21 @@
-themeselect=document.getElementById("theme-select")
+const themeselect=document.getElementById("theme-select")
 if(getCookie('theme')){
     themeselect.value=getCookie('theme')
+}else{
+    themeselect.value='Default'
 }
 
 themeselect.onchange=function() { 
     createCookie('theme', [this.value])
     var link = document.createElement("link");
-    link.href = '/css/' + this.value + '/index.css'
+    link.href = '/css/' + this.value + '/started.css'
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("html")[0].appendChild(link);
 } 
 
-const source = document.getElementById('source')
+
+const source = document.getElementById('api-input')
 source.addEventListener('propertychange', KeyInput);
 source.addEventListener('input', KeyInput);
 const result = document.getElementById('result');
