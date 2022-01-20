@@ -5,43 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <img src="https://i.ibb.co/JpMCzXS/image-removebg-preview-1.png" alt="HYSNIPER">
-    <link rel="stylesheet" type="text/css" href="/css/<%= theme  %>/<%= type  %>.css">
-
-    <title>HYSNIPER</title>
-
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/icon.ico" />
-    <meta name="description" content="Track players on the Hypixel network using Hypixel's api">
-    
-    <meta content="Hysnipe" property="og:title" />
-    <meta content="A website for tracking players on the Hypixel network using Hypixel's API" property="og:description" />
-    <meta content="/" property="og:url" />
-    <meta content="/assets/icon.ico" property="og:image" />
-    <meta content="#c12c2c" data-react-helmet="true" name="theme-color" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/<%= theme  %>/<%= type  %>.css">
+    <title>HySniper</title>
 </head>
 
 <body>
-    
-    <div class="container">
-        <input id="source" maxlength="36" class="api-put" type="text" placeholder="Enter Your Api Key">
-        <div id="result"></div>
+    <div class="HYSNIPER-Area">
+        <h1 class="logo">HYSNIPER</h1>
     </div>
-    <footer>
-        <div class="container-footer" style="margin-left: 87%;">
-            <i style="display: flex; justify-content: center; color: black; font-size: 30px; margin-top: 150px;"
-                class="fab fa-github-square"></i> <a
-                style="text-decoration: none; text-align: center; color: black; font-family: 'Poppins', sans-serif;"
-                href="/github">Github</a>
-        </div>
-        <div class="theme-selector">
-            <h2 class="theme">Choose a theme: </h2>
-            <select name="theme" id="theme-select" >
-                <option value="Default">Default</option>
-                <option value="Discord">Discord</option>
-            </select>
-        </div>
-    </footer>
-</body>
 
+    <div class="api-button">
+        <input id="api-input" class="api-input" placeholder="Enter Api Key" type="text">
+    </div>
+    <p id='result'> </p>
+    <div class="versionDiv">
+        <h2 class="versionH2"><%= version  %></h2>
+    </div>
+    <div class="themediv">
+        <div class="themediv1">
+            <h2 class="themeH2">Select Theme
+                <select name="theme" id="theme-select">
+                    <option class="selected-theme" value="Default">Default</option>
+                    <option class="selected-theme" value="Discord">Discord</option>
+                </select>
+            </h2>
+        </div>
+    </div>
+</body>
 </html>
 <script src="/js/index.js"></script>

@@ -7,70 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/8c7bff0843.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/css/<%= theme  %>/<%= type  %>.css">
-
-    <title>HYSNIPER</title>
-
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/icon.ico" />
-    <meta name="description" content="Track players on the Hypixel network using Hypixel's api">
-
-    <meta content="Hysnipe" property="og:title" />
-    <meta content="A website for tracking players on the Hypixel network using Hypixel's API"
-        property="og:description" />
-    <meta content="/" property="og:url" />
-    <meta content="/assets/icon.ico" property="og:image" />
-    <meta content="#c12c2c" data-react-helmet="true" name="theme-color" />
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/<%= theme  %>/<%= type  %>.css">
+    <title>HySniper</title>
 </head>
 
 <body>
+    <div class="HYSNIPER-Area">
 
-    <img src="https://i.ibb.co/JpMCzXS/image-removebg-preview-1.png" alt="HYSNIPER">
-    <div class="container">
-        <input  maxlength="16" id="userinput" class="api-put" type="text" placeholder="Sniping IGN">
+        <h1 class="logo">HYSNIPER</h1>
     </div>
-    <div class="info">
-        <table class="tg">
+    <div class="api-button">
+        <input id="userinput" class="api-input" placeholder="Enter IGN" type="text">
+    </div>
+
+    <div class="table1">
+        <table class="tg" id="usertable">
             <thead>
                 <tr>
-                    <th class="above"> </th>
-                    <th class="above">IGN</th>
-                    <th class="above">Game</th>
-                    <th class="above">Mode</th>
-                    <th class="above">Map</th>
+                    <td class="header"> </th>
+                    <th class="header">IGN</th>
+                    <th class="header">Game</th>
+                    <th class="header">Mode</th>
+                    <th class="header">Map</th>
                 </tr>
             </thead>
             <tbody id="usertable">
+
             </tbody>
         </table>
     </div>
+    <div class="versionDiv">
+        <h2 class="versionH2"><%= version  %></h2>
+    </div>
 
 
-    <footer>
-        <div class="container-footer" style="margin-left: 87%;">
-            <i style="display: flex; justify-content: center; color: black; font-size: 30px; margin-top: 150px;"
-                class="fab fa-github-square"></i> <a
-                style="text-decoration: none; text-align: center; color: black; font-family: 'Poppins', sans-serif;"
-                href="/github">Github</a>
-        </div>
-        
-        <div class="theme-selector">
-            <h2 class="theme">Choose a theme: </h2>
+
+
+    <div class="themediv">
+        <h2 class="soundH2">Sound <input id="soundbox"type="checkbox" name="sound" unchecked></h2>
+
+        <h2 class="themeH2">Select Theme
             <select name="theme" id="theme-select">
-                <option value="Default">Default</option>
-                <option value="Discord">Discord</option>
+                <option class="selected-theme" value="Default">Default</option>
+                <option class="selected-theme" value="Discord">Discord</option>
             </select>
-        </div>
-
-        <div class="sound">
-            <input  type="checkbox" id="soundbox" unchecked>
-            <label for="soundbox"></label>
-            <h2 class="soundbox">Enable Sound</h2>
-        </div>
-    </footer>
-
+        </h2>
+    </div>
 </body>
 </html>
-
 <script src="/js/started.js"></script>
