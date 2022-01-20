@@ -1,173 +1,138 @@
+@font-face {
+  font-family: "minecraftregular";
+  src: url("/fonts/Minecraft.ttf");
+  font-weight: bold;
+}
+
 * {
   text-align: center;
   background-color: #36393f;
 }
 
-input {
-  margin-top: 5%;
-  color: #000000;
-  border: #ffffff solid;
-  background-color: #ffffff;
-  border-radius: 4px;
-  height: 30px;
+.logo {
+  font-family: minecraftregular;
+  font-size: 100px;
 }
 
-::placeholder {
-  color: #000000;
-  font-size: 17px;
-  opacity: 0.8;
+.api-input {
+  font-family: "Dongle", sans-serif;
+  font-size: 30px;
+  background-color: white;
+  border: rgb(255, 255, 255) solid;
+  border-radius: 10px;
+}
+.versionDiv {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-family: minecraftregular;
+  font-weight: normal;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
-img {
-  width: 30%;
-  height: 30%;
-  margin-top: 5%;
+.themediv {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-family: "Dongle", sans-serif;
+}
+#theme {
+  background-color: rgb(207, 207, 207);
+  border: none;
+  font-size: 20px;
+  font-family: "Dongle", sans-serif;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
-.info {
-  margin-top: 5%;
-  margin-left: 35.5%;
+.themeH2 {
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+.soundH2 {
+  padding-right: 105px;
+  font-size: 30px;
 }
 
 .tg {
-  border-collapse: collapse;
-  border-color: #aabcfe;
+  text-align: center;
+  border-color: antiquewhite;
   border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
 }
-.tg td {
-  background-color: #e8edff;
-  border-color: #aabcfe;
-  border-style: solid;
-  border-width: 1px;
-  color: #669;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
+
 .tg th {
-  background-color: #b9c9fe;
-  border-color: #aabcfe;
+  background-color: #2f3136;
+  border-color: rgba(140, 140, 226, 0.596);
+  font-family: "Dongle", sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 28px;
   border-style: solid;
-  border-width: 1px;
-  color: #039;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
+  border-width: 3px;
+  color: #fff;
   overflow: hidden;
-  padding: 10px 5px;
   word-break: normal;
 }
-.tg .tg-baqh {
-  text-align: center;
-  vertical-align: top;
+
+.tg td {
+  background-color: #2f3136;
+  border-color: rgba(140, 140, 226, 0.596);
+  font-family: "Dongle", sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 28px;
+  border-style: solid;
+  border-width: 3px;
+  color: #fff;
+  overflow: hidden;
+  word-break: normal;
 }
 
-.tg .tg-username {
-  text-align: center;
-  vertical-align: top;
-}
-
-.tg .tg-0lax {
-  text-align: left;
-  vertical-align: top;
-}
-
-.tg th close1 {
-  color: red;
-}
-
-#closebutton {
-  color: #ffffff;
-  background-color: #e74545;
-  border-color: #e74545;
+.close-btn {
   border-radius: 20%;
-}
-
-.ign {
-  width: 100px;
-}
-
-.game {
-  width: 100px;
-}
-
-.mode {
-  width: 100px;
-}
-
-.map {
-  width: 100px;
-}
-
-.closeMan {
-  width: 0%;
-}
-
-.above {
-  width: 100px;
-}
-
-h2.soundbox {
-  font-family: "Poppins", sans-serif;
-  background-color: white;
-  margin-top: 11%;
-  vertical-align: middle;
-}
-
-input#soundbox {
-  width: 20px;
-  margin-left: 10%;
-}
-
-.sound {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 10px;
-  width: 250px;
-  text-align: center;
-  margin-left: 87%;
-  text-align: center;
-  height: 50px;
-  margin-top: 20px;
-}
-
-.theme-selector {
-  display: flex;
-  width: 250px;
-  background-color: white;
-  border-radius: 10px;
-  margin-left: 87%;
-}
-
-h2.theme {
-  vertical-align: middle;
-  font-family: "Poppins", sans-serif;
-  background-color: white;
-  font-size: 16px;
-  margin-left: 20px;
-}
-
-#theme-select {
-  background-color: white;
-  border: none;
-  border-radius: 5px;
+  background-color: #e74545;
+  color: rgb(255, 255, 255);
+  border-color: #e74545;
 }
 
 #online {
-  background-color: #48c06e;
+  background-color: #3ba55d;
 }
 
 #lobby {
-  background-color: #f3b64d;
+  background-color: #faa81a;
 }
 
 #offline {
-  background-color: #c73e41;
+  background-color: #ed4245;
 }
 
 #nothing {
-  background-color: #616974;
+  background-color: #636b77;
 }
+
+
+
+@media screen and (max-width: 625px) {
+  .logo {
+    font-size: 50px;
+  }
+
+  .tg td {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
+  .close-btn {
+    font-size: 8px;
+  }
+}
+

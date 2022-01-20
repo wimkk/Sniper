@@ -1,54 +1,105 @@
+@font-face {
+  font-family: "minecraftregular";
+  src: url("/fonts/Minecraft.ttf");
+  font-weight: bold;
+}
+
 * {
   text-align: center;
-  background-color: #c12c2c;
+  background-color: rgb(102, 102, 223);
 }
 
-input {
-  margin-top: 5%;
-  color: rgb(0, 0, 0);
+.logo {
+  font-family: minecraftregular;
+  font-size: 100px;
+}
+
+.api-input {
+  font-family: "Dongle", sans-serif;
+  font-size: 30px;
+  background-color: white;
   border: rgb(255, 255, 255) solid;
-  background-color: rgb(255, 255, 255);
-  border-radius: 4px;
-  height: 30px;
-}
-
-::placeholder {
-  color: rgb(0, 0, 0);
-  font-size: 17px;
-  opacity: 0.8;
-}
-
-img {
-  width: 30%;
-  height: 30%;
-  margin-top: 20%;
-}
-
-h2.soundbox {
-  font-family: "Poppins", sans-serif;
-  background-color: white;
-  margin-top: 11%;
-  vertical-align: middle;
-}
-
-.theme-selector {
-  display: flex;
-  width: 250px;
-  background-color: white;
   border-radius: 10px;
-  margin-left: 87%;
+}
+.versionDiv {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-family: minecraftregular;
+  font-weight: normal;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
-h2.theme {
-  vertical-align: middle;
-  font-family: "Poppins", sans-serif;
-  background-color: white;
-  font-size: 16px;
-  margin-left: 20px;
+.themediv {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-family: "Dongle", sans-serif;
 }
-
-#theme-select {
-  background-color: white;
+#theme {
+  background-color: rgb(207, 207, 207);
   border: none;
-  border-radius: 5px;
+  font-size: 20px;
+  font-family: "Dongle", sans-serif;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.themeH2 {
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+.soundH2 {
+  padding-right: 105px;
+  font-size: 30px;
+}
+
+.tg {
+  text-align: center;
+  border-color: antiquewhite;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+
+.tg th {
+  background-color: #b9c9fe;
+  border-color: rgba(140, 140, 226, 0.596);
+  font-family: "Dongle", sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 28px;
+  border-style: solid;
+  border-width: 3px;
+  color: #039;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.close-btn {
+  border-radius: 20%;
+  background-color: #e74545;
+  color: rgb(255, 255, 255);
+  border-color: #e74545;
+}
+
+@media screen and (max-width: 625px) {
+  .logo {
+    font-size: 50px;
+  }
+
+  .tg th {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
+  .close-btn {
+    font-size: 8px;
+  }
 }
