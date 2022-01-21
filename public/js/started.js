@@ -20,12 +20,6 @@ var url = new URL(window.location.href)
 var key = url.searchParams.get("key")
 CheckKey(key).then(res => {
     if (res) {
-
-        createCookie('key', JSON.stringify([
-            {
-                key: key,
-            },
-        ]));
         StartSniper()
     } else {
         window.location.replace("/")
