@@ -1,19 +1,20 @@
-const themeselect=document.getElementById("theme-select")
-if(getCookie('theme')){
-    themeselect.value=getCookie('theme')
-}else{
-    themeselect.value='Default'
+const themeselect = document.getElementById("theme-select")
+if (getCookie('theme')) {
+    themeselect.value = getCookie('theme')
+    theme=themeselect.value
+} else {
+    themeselect.value = 'Default'
+    theme=themeselect.value
 }
-
-themeselect.onchange=function() { 
+themeselect.onchange = function () {
     createCookie('theme', [this.value])
     var link = document.createElement("link");
     link.href = '/css/' + this.value + '/started.css'
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("html")[0].appendChild(link);
-} 
-
+    theme=this.value
+}
 
 var url = new URL(window.location.href)
 var key = url.searchParams.get("key")
@@ -30,7 +31,6 @@ CheckKey(key).then(res => {
         window.location.replace("/")
     }
 })
-
 
 if (getCookie('snipes')) {  //Set Snipes
     var snipescookie = getCookie('snipes');
@@ -52,11 +52,6 @@ const userinput = document.getElementById('userinput')
 userinput.addEventListener('keyup', UserInputFunction);
 soundenabled = false
 
-cred = '#f77777'
-cyellow = '#e0f593'
-cgreen = '#8dd99d'
-
-
 cleannames = {}
 var chr = new XMLHttpRequest();
 chr.onreadystatechange = (e) => {
@@ -66,37 +61,10 @@ chr.onreadystatechange = (e) => {
 }; chr.open("GET", "/json/clean.json"); chr.send();
 
 for (var ign in snipes) {
-    var row = table.insertRow(-1);
-    row.id = ign
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-
-    cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button>";
-    cell1.classList.add('close-th')
-
-    cell2.innerHTML = ign;
-    cell2.classList.add('ign')
-    cell2.id = 'nothing'
-
-    cell2.innerHTML = ign;
-    cell2.classList.add('ign')
-    cell2.id = 'nothing'
-
-    cell3.innerHTML = "---";
-    cell3.classList.add('game')
-    cell3.id = 'nothing'
-
-    cell4.innerHTML = "---";
-    cell4.classList.add('mode')
-    cell4.id = 'nothing'
-
-    cell5.innerHTML = "---";
-    cell5.classList.add('map')
-    cell5.id = 'nothing'
-
+    addrow({
+        name: ign,
+        uuid: snipes[ign]['uuid'],
+    })
 }
 
 async function StartSniper(key) {
@@ -123,7 +91,7 @@ async function StartSniper(key) {
                     mode = 'Lobby'
                     return
                 }
-
+              
                 mode = cleannames[sgametype]['modes'][smode]['clean']
                 if (!cleannames[sgametype]['modes'][smode]['nomap']) {
                     map = smap
@@ -141,7 +109,6 @@ function addrow(values) {
 
     snipes[values['name']] = {}
     snipes[values['name']].uuid = values['uuid']
-    console.log(snipes)
     if (Object.keys(snipes).length == 1) {
         StartSniper(key)
     }
@@ -155,7 +122,7 @@ function addrow(values) {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    
+
     cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button>";
     cell1.classList.add('close-th')
 
@@ -181,7 +148,7 @@ function addrow(values) {
 }
 
 function removerow(value) {
-    var num = value.parentNode.parentNode.rowIndex 
+    var num = value.parentNode.parentNode.rowIndex
     table.deleteRow(num);
     delete snipes[value.parentNode.parentNode.id]
     createCookie('snipes', JSON.stringify(snipes));
