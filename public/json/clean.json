@@ -171,11 +171,6 @@
       }
     }
   },
-  "UHC": {
-    "clean": {
-      "clean": "UHC Champions"
-    }
-  },
   "MCGO": {
     "clean": "Cops and Crims",
     "modes": {
@@ -531,6 +526,9 @@
         "nomap": true
       }
     }
+  },
+  "UHC": {
+    "clean": "UHC Champions"
   },
   "PIT": {
     "clean": "Pit",
