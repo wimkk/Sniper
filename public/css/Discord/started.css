@@ -18,8 +18,11 @@
   font-family: "Dongle", sans-serif;
   font-size: 30px;
   background-color: white;
-  border: rgb(255, 255, 255) solid;
+  border: #535861 solid;
   border-radius: 10px;
+  background-color:#40444b;
+  color: white;
+  width:200px
 }
 .versionDiv {
   position: fixed;
