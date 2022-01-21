@@ -1,19 +1,20 @@
-const themeselect=document.getElementById("theme-select")
-if(getCookie('theme')){
-    themeselect.value=getCookie('theme')
-}else{
-    themeselect.value='Default'
+const themeselect = document.getElementById("theme-select")
+if (getCookie('theme')) {
+    themeselect.value = getCookie('theme')
+    theme=themeselect.value
+} else {
+    themeselect.value = 'Default'
+    theme=themeselect.value
 }
-
-themeselect.onchange=function() { 
+themeselect.onchange = function () {
     createCookie('theme', [this.value])
     var link = document.createElement("link");
-    link.href = '/css/' + this.value + '/started.css'
+    link.href = '/css/' + this.value + '/index.css'
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("html")[0].appendChild(link);
-} 
-
+    theme=this.value
+}
 
 const source = document.getElementById('api-input')
 source.addEventListener('propertychange', KeyInput);
@@ -82,17 +83,9 @@ function getCookie(c_name) {
     return "";
 }
 
-function createCookie(name, value, days) {
-    var expires;
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-    }
-    else {
-        expires = "";
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
+function createCookie(name, value) {
+
+    document.cookie = name + "=" + value + "; path=/";
 }
 
 function getCookie(c_name) {
