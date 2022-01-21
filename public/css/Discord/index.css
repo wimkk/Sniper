@@ -6,7 +6,7 @@
 
 * {
   text-align: center;
-  background-color: rgb(102, 102, 223);
+  background-color: #36393f;
 }
 
 .logo {
@@ -18,8 +18,11 @@
   font-family: "Dongle", sans-serif;
   font-size: 30px;
   background-color: white;
-  border: rgb(255, 255, 255) solid;
+  border: #535861 solid;
   border-radius: 10px;
+  width: 360px;
+  background-color:#40444b;
+  color: white;
 }
 .versionDiv {
   position: fixed;
