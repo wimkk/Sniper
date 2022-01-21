@@ -17,13 +17,13 @@ app.get('/', async (req, res) => {
         res.render('index.ejs', {
             theme:theme,
             type:'index',
-            version:'V0.6'
+            version:process.env.VERSION
         })
     } else if(/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)){
         res.render('started.ejs', {
             theme:theme,
             type:'started',
-            version:'V0.6'
+            version:process.env.VERSION
         })
     }else{
         res.redirect('/')
