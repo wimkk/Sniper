@@ -8,11 +8,11 @@ if (getCookie('theme')) {
 }
 themeselect.onchange = function () {
     createCookie('theme', [this.value])
-    var link = document.createElement("link");
+    var link = document.createElement("link")
     link.href = '/css/' + this.value + '/started.css'
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    document.getElementsByTagName("html")[0].appendChild(link);
+    link.type = "text/css"
+    link.rel = "stylesheet"
+    document.getElementsByTagName("html")[0].appendChild(link)
     theme=this.value
 }
 
@@ -27,8 +27,8 @@ CheckKey(key).then(res => {
 })
 
 if (getCookie('snipes')) {  //Set Snipes
-    var snipescookie = getCookie('snipes');
-    var snipes = JSON.parse(snipescookie);
+    var snipescookie = getCookie('snipes')
+    var snipes = JSON.parse(snipescookie)
 } else {
     var snipes = {
         'Arosity': {
@@ -38,21 +38,22 @@ if (getCookie('snipes')) {  //Set Snipes
             uuid: "8c1a7e32c5a342a29a103ff338a853f3",
         }
     }
-    createCookie('snipes', JSON.stringify(snipes));
+    createCookie('snipes', JSON.stringify(snipes))
 }
 
-const table = document.getElementById("usertable");
+const table = document.getElementById("usertable")
 const userinput = document.getElementById('userinput')
-userinput.addEventListener('keyup', UserInputFunction);
+const responset = document.getElementById('responset')
+userinput.addEventListener('keyup', UserInputFunction)
 soundenabled = false
 
 cleannames = {}
-var chr = new XMLHttpRequest();
+var chr = new XMLHttpRequest()
 chr.onreadystatechange = (e) => {
     if (chr.readyState === 4) {
-        cleannames = JSON.parse(chr.responseText);
+        cleannames = JSON.parse(chr.responseText)
     }
-}; chr.open("GET", "/json/clean.json"); chr.send();
+}; chr.open("GET", "/json/clean.json"); chr.send()
 
 for (var ign in snipes) {
     addrow({
@@ -106,48 +107,48 @@ function addrow(values) {
     if (Object.keys(snipes).length == 1) {
         StartSniper(key)
     }
-    var json_str = JSON.stringify(snipes);
-    createCookie('snipes', json_str);
+    var json_str = JSON.stringify(snipes)
+    createCookie('snipes', json_str)
 
-    var row = table.insertRow(-1);
+    var row = table.insertRow(-1)
     row.id = values['name']
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
+    var cell1 = row.insertCell(0)
+    var cell2 = row.insertCell(1)
+    var cell3 = row.insertCell(2)
+    var cell4 = row.insertCell(3)
+    var cell5 = row.insertCell(4)
 
-    cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button>";
+    cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button>"
     cell1.classList.add('close-th')
 
-    cell2.innerHTML = values['name'];
+    cell2.innerHTML = values['name']
     cell2.classList.add('ign')
     cell2.id = 'nothing'
 
-    cell3.innerHTML = "---";
+    cell3.innerHTML = "---"
     cell3.classList.add('game')
     cell3.id = 'nothing'
 
-    cell4.innerHTML = "---";
+    cell4.innerHTML = "---"
     cell4.classList.add('mode')
     cell4.id = 'nothing'
 
-    cell5.innerHTML = "---";
+    cell5.innerHTML = "---"
     cell5.classList.add('map')
     cell5.id = 'nothing'
     if (soundenabled) {
-        new Audio('/sounds/' + theme + '/add.mp3').play();
+        new Audio('/sounds/' + theme + '/add.mp3').play()
     }
 
 }
 
 function removerow(value) {
     var num = value.parentNode.parentNode.rowIndex
-    table.deleteRow(num);
+    table.deleteRow(num)
     delete snipes[value.parentNode.parentNode.id]
-    createCookie('snipes', JSON.stringify(snipes));
+    createCookie('snipes', JSON.stringify(snipes))
     if (soundenabled) {
-        new Audio('/sounds/' + theme + '/remove.mp3').play();
+        new Audio('/sounds/' + theme + '/remove.mp3').play()
     }
 }
 
@@ -193,14 +194,14 @@ async function editrow(ign, sgame, smode, smap, scolor) {
             if (soundenabled) {
                 if (play) {
                     if (paststatus == "offline") {
-                        new Audio('/sounds/' + theme + '/connect.mp3').play();
+                        new Audio('/sounds/' + theme + '/connect.mp3').play()
                     } else if (scolor == "offline") {
-                        new Audio('/sounds/' + theme + '/disconnect.mp3').play();
+                        new Audio('/sounds/' + theme + '/disconnect.mp3').play()
                     } else if (scolor == "online") {
-                        new Audio('/sounds/' + theme + '/join.mp3').play();
+                        new Audio('/sounds/' + theme + '/join.mp3').play()
                     } else if (scolor == "lobby") {
                         if (paststatus == "online") {
-                            new Audio('/sounds/' + theme + '/leave.mp3').play();
+                            new Audio('/sounds/' + theme + '/leave.mp3').play()
                         }
                     }
                 }
@@ -248,7 +249,7 @@ async function UserInputFunction(e) {
 async function getUSER(num) {
     uuid = snipes[num]["uuid"]
 
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest()
     return new Promise((resolve, reject) => {
         xhr.onreadystatechange = (e) => {
             if (xhr.readyState === 4) {
@@ -258,107 +259,105 @@ async function getUSER(num) {
                         eraseCookie('key')
                         window.location.replace("/")
                     }
-
                 }
                 resolve(a)
-
             }
-        };
-        xhr.open("POST", "https://api.hypixel.net/status?key=" + key + "&uuid=" + uuid);
-        xhr.send();
-    });
+        }
+        xhr.open("POST", "https://api.hypixel.net/status?key=" + key + "&uuid=" + uuid)
+        xhr.send()
+    })
 }
 
 async function getUUID(user) {
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest()
     return new Promise((resolve, reject) => {
         xhr.onreadystatechange = (e) => {
             if (xhr.readyState === 4) {
                 if (xhr.status != 404) {
-                    a = JSON.parse(xhr.responseText);
+                    a = JSON.parse(xhr.responseText)
                     resolve(a)
                 } else {
                     resolve(false)
                 }
 
             }
-        };
-        xhr.open("POST", "https://api.ashcon.app/mojang/v2/user/" + user);
-        xhr.send();
-    });
+        }
+        xhr.open("POST", "https://api.ashcon.app/mojang/v2/user/" + user)
+        xhr.send()
+    })
 }
 
 function CheckKey(e) {
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest()
     return new Promise((resolve, reject) => {
         xhr.onreadystatechange = (e) => {
             if (xhr.readyState === 4) {
-                a = JSON.parse(xhr.responseText);
+                a = JSON.parse(xhr.responseText)
                 if (a.success) {
-                    resolve(true);
+                    resolve(true)
                 } else {
-                    resolve(false);
+                    resolve(false)
                 }
             }
-        };
-        xhr.open("POST", "https://api.hypixel.net/key?key=" + e);
-        xhr.send();
-    });
+        }
+        xhr.open("POST", "https://api.hypixel.net/key?key=" + e)
+        xhr.send()
+    })
 }
 
 function createCookie(name, value, days) {
-    var expires;
+    var expires
     if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
+        var date = new Date()
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
+        expires = " expires=" + date.toGMTString()
     }
     else {
-        expires = "";
+        expires = ""
     }
-    document.cookie = name + "=" + value + expires + "; path=/";
+    document.cookie = name + "=" + value + expires + " path=/"
 }
 
 function getCookie(c_name) {
     if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf(c_name + "=");
+        c_start = document.cookie.indexOf(c_name + "=")
         if (c_start != -1) {
-            c_start = c_start + c_name.length + 1;
-            c_end = document.cookie.indexOf(";", c_start);
+            c_start = c_start + c_name.length + 1
+            c_end = document.cookie.indexOf("", c_start)
             if (c_end == -1) {
-                c_end = document.cookie.length;
+                c_end = document.cookie.length
             }
-            return unescape(document.cookie.substring(c_start, c_end));
+            return unescape(document.cookie.substring(c_start, c_end))
         }
     }
-    return "";
+    return ""
 }
 
 function eraseCookie(name) {
-    document.cookie = name + '=; Max-Age=-99999999;';
+    document.cookie = name + '= Max-Age=-99999999'
 }
 
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 function componentFromStr(numStr, percent) {
-    var num = Math.max(0, parseInt(numStr, 10));
+    var num = Math.max(0, parseInt(numStr, 10))
     return percent ?
-        Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+        Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num)
 }
 
 function r2h(rgb) {
-    var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
-    var result, r, g, b, hex = "";
+    var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/
+    var result, r, g, b, hex = ""
     if ((result = rgbRegex.exec(rgb))) {
-        r = componentFromStr(result[1], result[2]);
-        g = componentFromStr(result[3], result[4]);
-        b = componentFromStr(result[5], result[6]);
+        r = componentFromStr(result[1], result[2])
+        g = componentFromStr(result[3], result[4])
+        b = componentFromStr(result[5], result[6])
 
-        hex = '#' + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        hex = '#' + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1)
     }
-    return hex;
+    return hex
 }
 
 const soundbox = document.getElementById("soundbox")
