@@ -21,11 +21,25 @@
   border: rgb(255, 255, 255) solid;
   border-radius: 10px;
   width: 360px;
-  color: black;
 }
+.rgithub {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 130px;
+  margin-bottom: 19px;
+}
+.socials {
+  text-decoration: none;
+  font-family: "Dongle", sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
 .versionDiv {
   position: fixed;
   bottom: 0;
+  padding-left: 15px;
   left: 0;
   font-family: minecraftregular;
   font-weight: normal;
@@ -38,24 +52,30 @@
   bottom: 0;
   right: 0;
   font-family: "Dongle", sans-serif;
+  border-radius: 10px 0px 0px 0px;
 }
-#theme {
-  background-color: rgb(207, 207, 207);
+#theme-select {
+  background-color: white;
   border: none;
-  font-size: 20px;
+  font-size: 25px;
   font-family: "Dongle", sans-serif;
   border-radius: 10px;
   margin-right: 10px;
+}
+#theme-select option {
+  background-color: white;
 }
 
 .themeH2 {
   padding-left: 10px;
   font-size: 30px;
+  font-weight: normal;
 }
 
 .soundH2 {
   padding-right: 105px;
   font-size: 30px;
+  font-weight: normal;
 }
 
 .tg {
