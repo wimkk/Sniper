@@ -4,6 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const fs = require("fs")
 
+app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
