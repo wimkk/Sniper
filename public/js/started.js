@@ -66,10 +66,14 @@ async function StartSniper(key) {
     while (Object.keys(snipes).length > 0) {
         for (var ign in snipes) {
             await getUSER(ign).then(res => {
-                session = res["session"]
                 game = '---'
                 mode = '---'
                 map = '---'
+                if(res==false){
+                    return
+                }
+                session = res["session"]
+                
                 if (session['online'] == false) {
                     color = 'offline'
                     return
@@ -258,9 +262,13 @@ async function getUSER(num) {
                     if (a['cause'] == 'Invalid API key') {
                         eraseCookie('key')
                         window.location.replace("/")
+                    }else if(a['cause']=='Key throttle'){
+                        console.log('Key throttle')
                     }
+                }else{
+                    resolve(a)
                 }
-                resolve(a)
+                
             }
         }
         xhr.open("POST", "https://api.hypixel.net/status?key=" + key + "&uuid=" + uuid)
