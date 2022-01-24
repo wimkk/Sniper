@@ -4,7 +4,6 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const fs = require("fs")
 
-app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
@@ -21,7 +20,7 @@ app.get('/', async (req, res) => {
             version:process.env.VERSION
         })
     } else if(/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)){
-        res.cookie('key',req.query.key, { maxAge: 900000, httpOnly: true });
+        res.cookie('key',req.query.key);
         res.render('started.ejs', {
             theme:theme,
             type:'started',
@@ -30,7 +29,6 @@ app.get('/', async (req, res) => {
     }else{
         res.redirect('/')
     }
-    
 })
 
 app.get('/github', async (req, res) => {
