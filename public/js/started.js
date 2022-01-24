@@ -1,31 +1,27 @@
 const themeselect = document.getElementById("theme-select")
 if (getCookie('theme')) {
     themeselect.value = getCookie('theme')
-    theme=themeselect.value
-} else {
-    themeselect.value = 'Default'
-    theme=themeselect.value
+    theme = themeselect.value
 }
 themeselect.onchange = function () {
     createCookie('theme', [this.value])
-    var link = document.createElement("link")
+    var link = document.createElement("link");
     link.href = '/css/' + this.value + '/started.css'
-    link.type = "text/css"
-    link.rel = "stylesheet"
-    document.getElementsByTagName("html")[0].appendChild(link)
-    theme=this.value
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    document.getElementsByTagName("html")[0].appendChild(link);
+    theme = this.value
 }
-
 var url = new URL(window.location.href)
 var key = url.searchParams.get("key")
 CheckKey(key).then(res => {
     if (res) {
         StartSniper()
     } else {
+        eraseCookie('key')
         window.location.replace("/")
     }
 })
-
 if (getCookie('snipes')) {  //Set Snipes
     var snipescookie = getCookie('snipes')
     var snipes = JSON.parse(snipescookie)
@@ -69,11 +65,11 @@ async function StartSniper(key) {
                 game = '---'
                 mode = '---'
                 map = '---'
-                if(res==false){
+                if (res == false) {
                     return
                 }
                 session = res["session"]
-                
+
                 if (session['online'] == false) {
                     color = 'offline'
                     return
@@ -84,19 +80,24 @@ async function StartSniper(key) {
                 smode = session['mode']
                 smap = session['map']
 
+
                 game = cleannames[sgametype]['clean']
+
+
                 if (smode == 'LOBBY') {
                     color = 'lobby'
                     mode = 'Lobby'
                     return
                 }
-              
+
                 mode = cleannames[sgametype]['modes'][smode]['clean']
                 if (!cleannames[sgametype]['modes'][smode]['nomap']) {
                     map = smap
                 }
 
                 color = 'online'
+
+
             })
             editrow(ign, game, mode, map, color)
             await sleep(505)
@@ -262,13 +263,13 @@ async function getUSER(num) {
                     if (a['cause'] == 'Invalid API key') {
                         eraseCookie('key')
                         window.location.replace("/")
-                    }else if(a['cause']=='Key throttle'){
+                    } else if (a['cause'] == 'Key throttle') {
                         console.log('Key throttle')
                     }
-                }else{
+                } else {
                     resolve(a)
                 }
-                
+
             }
         }
         xhr.open("POST", "https://api.hypixel.net/status?key=" + key + "&uuid=" + uuid)
@@ -314,31 +315,31 @@ function CheckKey(e) {
 }
 
 function createCookie(name, value, days) {
-    var expires
+    var expires;
     if (days) {
-        var date = new Date()
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
-        expires = " expires=" + date.toGMTString()
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
     }
     else {
-        expires = ""
+        expires = "";
     }
-    document.cookie = name + "=" + value + expires + " path=/"
+    document.cookie = name + "=" + value + expires + "; path=/";
 }
 
 function getCookie(c_name) {
     if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf(c_name + "=")
+        c_start = document.cookie.indexOf(c_name + "=");
         if (c_start != -1) {
-            c_start = c_start + c_name.length + 1
-            c_end = document.cookie.indexOf("", c_start)
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
             if (c_end == -1) {
-                c_end = document.cookie.length
+                c_end = document.cookie.length;
             }
-            return unescape(document.cookie.substring(c_start, c_end))
+            return unescape(document.cookie.substring(c_start, c_end));
         }
     }
-    return ""
+    return "";
 }
 
 function eraseCookie(name) {
@@ -347,25 +348,6 @@ function eraseCookie(name) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
-}
-
-function componentFromStr(numStr, percent) {
-    var num = Math.max(0, parseInt(numStr, 10))
-    return percent ?
-        Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num)
-}
-
-function r2h(rgb) {
-    var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/
-    var result, r, g, b, hex = ""
-    if ((result = rgbRegex.exec(rgb))) {
-        r = componentFromStr(result[1], result[2])
-        g = componentFromStr(result[3], result[4])
-        b = componentFromStr(result[5], result[6])
-
-        hex = '#' + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1)
-    }
-    return hex
 }
 
 const soundbox = document.getElementById("soundbox")
