@@ -7,13 +7,13 @@
 * {
   text-align: center;
   background-color: rgb(102, 102, 223);
-  color:black;
+  color: black;
 }
 
 .logo {
   font-family: minecraftregular;
   font-size: 100px;
-  color:black;
+  color: black;
 }
 
 .api-input {
@@ -51,7 +51,7 @@
   font-weight: normal;
   font-size: 20px;
   margin-left: 10px;
-  color:black;
+  color: black;
 }
 
 .githubSocialDiv {
@@ -65,7 +65,7 @@
   bottom: 0;
   right: 0;
   font-family: "Dongle", sans-serif;
-  color:black;
+  color: black;
 }
 #theme-select {
   background-color: white;
@@ -83,14 +83,14 @@
   padding-left: 10px;
   font-size: 30px;
   font-weight: normal;
-  color:black;
+  color: black;
 }
 
 .soundH2 {
   padding-right: 105px;
   font-size: 30px;
   font-weight: normal;
-  color:black;
+  color: black;
 }
 
 .tg {

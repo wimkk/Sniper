@@ -1,10 +1,10 @@
 const themeselect = document.getElementById("theme-select")
 if (getCookie('theme')) {
     themeselect.value = getCookie('theme')
-    theme=themeselect.value
+    theme = themeselect.value
 } else {
     themeselect.value = 'Default'
-    theme=themeselect.value
+    theme = themeselect.value
 }
 themeselect.onchange = function () {
     createCookie('theme', [this.value])
@@ -13,7 +13,7 @@ themeselect.onchange = function () {
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("html")[0].appendChild(link);
-    theme=this.value
+    theme = this.value
 }
 
 const source = document.getElementById('api-input')
@@ -21,8 +21,8 @@ source.addEventListener('propertychange', KeyInput);
 source.addEventListener('input', KeyInput);
 const result = document.getElementById('result');
 
-if(getCookie('key')){
-    var cookiekey =getCookie('key')
+if (getCookie('key')) {
+    var cookiekey = getCookie('key')
     CheckKey(cookiekey).then(res => {
         if (res) {
             result.innerHTML = "Valid Key"
