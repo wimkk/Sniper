@@ -7,6 +7,7 @@
 * {
   text-align: center;
   background-color: #36393f;
+  color:white
 }
 
 .logo {
@@ -58,15 +59,16 @@
   font-family: "Dongle", sans-serif;
 }
 #theme-select {
-  background-color: white;
-  border: none;
+  background-color: #40444b;
+  border:#535861 solid;
   font-size: 25px;
   font-family: "Dongle", sans-serif;
   border-radius: 10px;
   margin-right: 10px;
 }
 #theme-select option {
-  background-color: white;
+  background-color: #40444b;
+  border:#535861 solid;
 }
 
 .themeH2 {

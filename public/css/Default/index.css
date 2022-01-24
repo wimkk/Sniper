@@ -7,11 +7,13 @@
 * {
   text-align: center;
   background-color: rgb(102, 102, 223);
+  color:black
 }
 
 .logo {
   font-family: minecraftregular;
   font-size: 100px;
+  color:black;
 }
 
 .api-input {
@@ -45,6 +47,7 @@
   font-weight: normal;
   font-size: 20px;
   margin-left: 10px;
+  color:white;
 }
 
 .themediv {
@@ -61,6 +64,7 @@
   font-family: "Dongle", sans-serif;
   border-radius: 10px;
   margin-right: 10px;
+  
 }
 #theme-select option {
   background-color: white;
@@ -70,6 +74,7 @@
   padding-left: 10px;
   font-size: 30px;
   font-weight: normal;
+  color:black;
 }
 
 .soundH2 {
