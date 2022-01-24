@@ -349,6 +349,9 @@
       "BEDWARS_EIGHT_TWO_ULTIMATE": {
         "clean": "Doubles Ultimate",
         "nomap": true
+      },
+      "BEDWARS_CASTLE": {
+        "clean": "40v40 Castle"
       }
     }
   },
