@@ -2,7 +2,11 @@ const themeselect = document.getElementById("theme-select")
 if (getCookie('theme')) {
     themeselect.value = getCookie('theme')
     theme = themeselect.value
+}else{
+    theme='Default'
+
 }
+setsound()
 themeselect.onchange = function () {
     createCookie('theme', [this.value])
     var link = document.createElement("link");
@@ -11,7 +15,9 @@ themeselect.onchange = function () {
     link.rel = "stylesheet";
     document.getElementsByTagName("html")[0].appendChild(link);
     theme = this.value
+    setsound()
 }
+
 var url = new URL(window.location.href)
 var key = url.searchParams.get("key")
 CheckKey(key).then(res => {
@@ -22,6 +28,16 @@ CheckKey(key).then(res => {
         window.location.replace("/")
     }
 })
+
+function setsound(){
+    sadd=new Audio('/sounds/' + theme + '/add.mp3')
+    sconnect=new Audio('/sounds/' + theme + '/connect.mp3')
+    sdisconnect=new Audio('/sounds/' + theme + '/disconnect.mp3')
+    sjoin=new Audio('/sounds/' + theme + '/join.mp3')
+    sleave=new Audio('/sounds/' + theme + '/leave.mp3')
+    sremove=new Audio('/sounds/' + theme + '/remove.mp3')
+}
+
 if (getCookie('snipes')) {  //Set Snipes
     var snipescookie = getCookie('snipes')
     var snipes = JSON.parse(snipescookie)
@@ -89,7 +105,9 @@ async function StartSniper(key) {
                     mode = 'Lobby'
                     return
                 }
-
+                console.log(sgametype)
+                console.log(smode)
+                console.log(smap)
                 mode = cleannames[sgametype]['modes'][smode]['clean']
                 if (!cleannames[sgametype]['modes'][smode]['nomap']) {
                     map = smap
@@ -142,7 +160,7 @@ function addrow(values) {
     cell5.classList.add('map')
     cell5.id = 'nothing'
     if (soundenabled) {
-        new Audio('/sounds/' + theme + '/add.mp3').play()
+        sadd.play()
     }
 
 }
@@ -153,7 +171,7 @@ function removerow(value) {
     delete snipes[value.parentNode.parentNode.id]
     createCookie('snipes', JSON.stringify(snipes))
     if (soundenabled) {
-        new Audio('/sounds/' + theme + '/remove.mp3').play()
+        sremove.play()
     }
 }
 
@@ -199,14 +217,14 @@ async function editrow(ign, sgame, smode, smap, scolor) {
             if (soundenabled) {
                 if (play) {
                     if (paststatus == "offline") {
-                        new Audio('/sounds/' + theme + '/connect.mp3').play()
+                        sconnect.play()
                     } else if (scolor == "offline") {
-                        new Audio('/sounds/' + theme + '/disconnect.mp3').play()
+                        sdisconnect.play()
                     } else if (scolor == "online") {
-                        new Audio('/sounds/' + theme + '/join.mp3').play()
+                        sjoin.play()
                     } else if (scolor == "lobby") {
                         if (paststatus == "online") {
-                            new Audio('/sounds/' + theme + '/leave.mp3').play()
+                            sleave.play()
                         }
                     }
                 }
