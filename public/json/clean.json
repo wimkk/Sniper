@@ -536,6 +536,10 @@
       "SOLO": {
         "clean": "Solo",
         "nomap":true
+      },
+      "TEAMS": {
+        "clean": "Teams",
+        "nomap":true
       }
     }
   },
