@@ -105,17 +105,17 @@ async function StartSniper(key) {
                     mode = 'Lobby'
                     return
                 }
-                console.log(sgametype)
-                console.log(smode)
-                console.log(smap)
-                mode = cleannames[sgametype]['modes'][smode]['clean']
-                if (!cleannames[sgametype]['modes'][smode]['nomap']) {
-                    map = smap
+                
+                try{
+                    mode = cleannames[sgametype]['modes'][smode]['clean']
+                    if (!cleannames[sgametype]['modes'][smode]['nomap']) {
+                        map = smap
+                    }
+    
+                    color = 'online'
+                }catch(err){
+                    console.log(sgametype+"     "+smode+"   "+smap)
                 }
-
-                color = 'online'
-
-
             })
             editrow(ign, game, mode, map, color)
             await sleep(505)
