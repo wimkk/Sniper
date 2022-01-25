@@ -531,7 +531,13 @@
     }
   },
   "UHC": {
-    "clean": "UHC Champions"
+    "clean": "UHC Champions",
+    "modes": {
+      "SOLO": {
+        "clean": "Solo",
+        "nomap":true
+      }
+    }
   },
   "PIT": {
     "clean": "Pit",
