@@ -97,6 +97,7 @@ function createCookie(name, value, days) {
     document.cookie = name + "=" + value + expires + "; path=/";
 }
 
+
 function eraseCookie(name) {
-    document.cookie = name + '= Max-Age=-99999999'
+    document.cookie = name + '=; Max-Age=-99999999;';
 }
