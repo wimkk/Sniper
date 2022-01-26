@@ -23,23 +23,11 @@
   border: rgb(255, 255, 255) solid;
   border-radius: 10px;
   width: 200px;
-}
-.api-input::placeholder {
-  color: #757575;
+  color: black;
 }
 
-.rgithub {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  margin-left: 130px;
-  margin-bottom: 19px;
-}
-.socials {
-  text-decoration: none;
-  font-family: "Dongle", sans-serif;
-  font-size: 30px;
-  color: white;
+.api-input::placeholder {
+  color: #757575;
 }
 
 .versionDiv {
@@ -54,12 +42,6 @@
   color: black;
 }
 
-.githubSocialDiv {
-  position: fixed;
-  bottom: 0;
-  font-family: "Dongle", sans-serif;
-  text-align: center;
-}
 .themediv {
   position: fixed;
   bottom: 0;
