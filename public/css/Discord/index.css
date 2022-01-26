@@ -26,19 +26,6 @@
   background-color: #40444b;
   color: white;
 }
-.rgithub {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  margin-left: 130px;
-  margin-bottom: 19px;
-}
-.socials {
-  text-decoration: none;
-  font-family: "Dongle", sans-serif;
-  font-size: 30px;
-  color: white;
-}
 
 .versionDiv {
   position: fixed;

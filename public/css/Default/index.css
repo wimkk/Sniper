@@ -19,10 +19,10 @@
 .api-input {
   font-family: "Dongle", sans-serif;
   font-size: 30px;
-  background-color: white;
   border: rgb(255, 255, 255) solid;
   border-radius: 10px;
   width: 360px;
+  color:black;
 }
 .rgithub {
   position: fixed;
@@ -30,12 +30,6 @@
   left: 0;
   margin-left: 130px;
   margin-bottom: 19px;
-}
-.socials {
-  text-decoration: none;
-  font-family: "Dongle", sans-serif;
-  font-size: 30px;
-  color: white;
 }
 
 .versionDiv {
