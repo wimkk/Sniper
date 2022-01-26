@@ -130,13 +130,13 @@ async function StartSniper(key) {
 }
 
 function addrow(values) {
-    if (Object.keys(snipes).length == 0) {
+    if (Object.keys(snipes).length != 0) {
         snipes[values['name']] = {}
         snipes[values['name']].uuid = values['uuid']
-        if (Object.keys(snipes).length == 1) {
-            StartSniper(key)
-        }
+    }else{
+        StartSniper(key)
     }
+    
 
     var json_str = JSON.stringify(snipes)
     createCookie('snipes', json_str)
