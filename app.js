@@ -8,29 +8,28 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
-    theme='Default'
-    if(req.cookies.theme){
-        if(fs.existsSync('public/css/'+theme)){
-            theme=req.cookies.theme
+    theme = 'Default'
+    if (req.cookies.theme) {
+        if (fs.existsSync('public/css/' + theme)) {
+            theme = req.cookies.theme
         }
     }
     if (!req.query.key) {
         res.render('index.ejs', {
-            theme:theme,
-            type:'index',
-            version:process.env.VERSION
+            theme: theme,
+            type: 'index',
+            version: process.env.VERSION
         })
-    } else if(/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)){
-        res.cookie('key',req.query.key, { maxAge: 900000, httpOnly: true });
+    } else if (/[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/.test(req.query.key)) {
+        res.cookie('key', req.query.key);
         res.render('started.ejs', {
-            theme:theme,
-            type:'started',
-            version:process.env.VERSION
+            theme: theme,
+            type: 'started',
+            version: process.env.VERSION
         })
-    }else{
+    } else {
         res.redirect('/')
     }
-    
 })
 
 app.get('/github', async (req, res) => {

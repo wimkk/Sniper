@@ -1,10 +1,10 @@
 const themeselect = document.getElementById("theme-select")
 if (getCookie('theme')) {
     themeselect.value = getCookie('theme')
-    theme=themeselect.value
+    theme = themeselect.value
 } else {
     themeselect.value = 'Default'
-    theme=themeselect.value
+    theme = themeselect.value
 }
 themeselect.onchange = function () {
     createCookie('theme', [this.value])
@@ -13,7 +13,7 @@ themeselect.onchange = function () {
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("html")[0].appendChild(link);
-    theme=this.value
+    theme = this.value
 }
 
 const source = document.getElementById('api-input')
@@ -21,14 +21,15 @@ source.addEventListener('propertychange', KeyInput);
 source.addEventListener('input', KeyInput);
 const result = document.getElementById('result');
 
-if(getCookie('key')){
-    var cookiekey = JSON.parse(getCookie('key'));
-    CheckKey(cookiekey[0]['key']).then(res => {
+if (getCookie('key')) {
+    var cookiekey = getCookie('key')
+    CheckKey(cookiekey).then(res => {
         if (res) {
             result.innerHTML = "Valid Key"
-            window.location.replace("/?key=" + cookiekey[0]['key']);
+            window.location.replace("/?key=" + cookiekey);
         } else {
             result.innerHTML = "Invalid Key"
+            eraseCookie('key')
         }
     })
 }
@@ -83,22 +84,20 @@ function getCookie(c_name) {
     return "";
 }
 
-function createCookie(name, value) {
-
-    document.cookie = name + "=" + value + "; path=/";
+function createCookie(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-function getCookie(c_name) {
-    if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf(c_name + "=");
-        if (c_start != -1) {
-            c_start = c_start + c_name.length + 1;
-            c_end = document.cookie.indexOf(";", c_start);
-            if (c_end == -1) {
-                c_end = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
-        }
-    }
-    return "";
+
+function eraseCookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
 }

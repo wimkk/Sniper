@@ -7,6 +7,7 @@
 * {
   text-align: center;
   background-color: #36393f;
+  color: white;
 }
 
 .logo {
@@ -25,23 +26,11 @@
   color: white;
   width: 200px;
 }
-.rgithub {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  margin-left: 130px;
-  margin-bottom: 19px;
-}
-.socials {
-  text-decoration: none;
-  font-family: "Dongle", sans-serif;
-  font-size: 30px;
-  color: white;
-}
 
 .api-input::placeholder {
   color: white;
 }
+
 .versionDiv {
   position: fixed;
   bottom: 0;
@@ -61,15 +50,16 @@
   font-family: "Dongle", sans-serif;
 }
 #theme-select {
-  background-color: white;
-  border: none;
+  background-color: #40444b;
+  border: #535861 solid;
   font-size: 25px;
   font-family: "Dongle", sans-serif;
   border-radius: 10px;
   margin-right: 10px;
 }
 #theme-select option {
-  background-color: white;
+  background-color: #40444b;
+  border: #535861 solid;
 }
 
 .themeH2 {
@@ -99,7 +89,7 @@
 
 .tg th {
   background-color: #2f3136;
-  border-color: rgba(140, 140, 226, 0.596);
+  border-color: #40444b;
   font-family: "Dongle", sans-serif;
   padding-left: 30px;
   padding-right: 30px;
@@ -113,7 +103,7 @@
 
 .tg td {
   background-color: #2f3136;
-  border-color: rgba(140, 140, 226, 0.596);
+  border-color: #40444b;
   font-family: "Dongle", sans-serif;
   padding-left: 30px;
   padding-right: 30px;
