@@ -134,6 +134,8 @@ function addrow(values) {
         snipes[values['name']] = {}
         snipes[values['name']].uuid = values['uuid']
     }else{
+        snipes[values['name']] = {}
+        snipes[values['name']].uuid = values['uuid']
         StartSniper(key)
     }
     
