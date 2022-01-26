@@ -2,8 +2,8 @@ const themeselect = document.getElementById("theme-select")
 if (getCookie('theme')) {
     themeselect.value = getCookie('theme')
     theme = themeselect.value
-}else{
-    theme='Default'
+} else {
+    theme = 'Default'
 
 }
 setsound()
@@ -29,13 +29,13 @@ CheckKey(key).then(res => {
     }
 })
 
-function setsound(){
-    sadd=new Audio('/sounds/' + theme + '/add.mp3')
-    sconnect=new Audio('/sounds/' + theme + '/connect.mp3')
-    sdisconnect=new Audio('/sounds/' + theme + '/disconnect.mp3')
-    sjoin=new Audio('/sounds/' + theme + '/join.mp3')
-    sleave=new Audio('/sounds/' + theme + '/leave.mp3')
-    sremove=new Audio('/sounds/' + theme + '/remove.mp3')
+function setsound() {
+    sadd = new Audio('/sounds/' + theme + '/add.mp3')
+    sconnect = new Audio('/sounds/' + theme + '/connect.mp3')
+    sdisconnect = new Audio('/sounds/' + theme + '/disconnect.mp3')
+    sjoin = new Audio('/sounds/' + theme + '/join.mp3')
+    sleave = new Audio('/sounds/' + theme + '/leave.mp3')
+    sremove = new Audio('/sounds/' + theme + '/remove.mp3')
 }
 
 if (getCookie('snipes')) {  //Set Snipes
@@ -77,13 +77,14 @@ for (var ign in snipes) {
 async function StartSniper(key) {
     while (Object.keys(snipes).length > 0) {
         for (var ign in snipes) {
-            await getUSER(ign).then(res => {
+            await getUSER(ign).then(async res => {
+                if (res == false) edit = false
+                if (res == false) return
+                edit = true
                 game = '---'
                 mode = '---'
                 map = '---'
-                if (res == false) {
-                    return
-                }
+
                 session = res["session"]
 
                 if (session['online'] == false) {
@@ -105,31 +106,38 @@ async function StartSniper(key) {
                     mode = 'Lobby'
                     return
                 }
-                
-                try{
+
+                try {
                     mode = cleannames[sgametype]['modes'][smode]['clean']
                     if (!cleannames[sgametype]['modes'][smode]['nomap']) {
                         map = smap
                     }
-    
+
                     color = 'online'
-                }catch(err){
-                    console.log(sgametype+"     "+smode+"   "+smap)
+                } catch (err) {
+                    console.log(sgametype + "     " + smode + "   " + smap)
                 }
+
             })
-            editrow(ign, game, mode, map, color)
-            await sleep(505)
+            if (edit) {
+                editrow(ign, game, mode, map, color)
+                await sleep(505)
+            } else {
+                await sleep(2000)
+            }
         }
     }
 }
 
 function addrow(values) {
-
-    snipes[values['name']] = {}
-    snipes[values['name']].uuid = values['uuid']
-    if (Object.keys(snipes).length == 1) {
-        StartSniper(key)
+    if (Object.keys(snipes).length == 0) {
+        snipes[values['name']] = {}
+        snipes[values['name']].uuid = values['uuid']
+        if (Object.keys(snipes).length == 1) {
+            StartSniper(key)
+        }
     }
+
     var json_str = JSON.stringify(snipes)
     createCookie('snipes', json_str)
 
@@ -176,10 +184,7 @@ function removerow(value) {
 }
 
 async function editrow(ign, sgame, smode, smap, scolor) {
-
     if (document.getElementById(ign)) {
-
-
         row = document.getElementById(ign)
         ign = row.getElementsByClassName('ign')[0]
         game = row.getElementsByClassName('game')[0]
@@ -275,19 +280,24 @@ async function getUSER(num) {
     var xhr = new XMLHttpRequest()
     return new Promise((resolve, reject) => {
         xhr.onreadystatechange = (e) => {
-            if (xhr.readyState === 4) {
-                a = JSON.parse(xhr.responseText)
-                if (a['success'] == false) {
-                    if (a['cause'] == 'Invalid API key') {
-                        eraseCookie('key')
-                        window.location.replace("/")
-                    } else if (a['cause'] == 'Key throttle') {
-                        console.log('Key throttle')
+            try {
+                if (xhr.readyState === 4) {
+                    a = JSON.parse(xhr.responseText)
+                    if (a['success'] == false) {
+                        if (a['cause'] == 'Invalid API key') {
+                            eraseCookie('key')
+                            window.location.replace("/")
+                        } else if (a['cause'] == 'Key throttle') {
+                            console.log('Key throttle')
+                            resolve(false)
+                        }
+                    } else {
+                        resolve(a)
                     }
-                } else {
-                    resolve(a)
-                }
 
+                }
+            } catch (err) {
+                console.log(err)
             }
         }
         xhr.open("POST", "https://api.hypixel.net/status?key=" + key + "&uuid=" + uuid)
@@ -361,7 +371,7 @@ function getCookie(c_name) {
 }
 
 function eraseCookie(name) {
-    document.cookie = name + '= Max-Age=-99999999'
+    document.cookie = name + '=; Max-Age=-99999999;';
 }
 
 function sleep(ms) {
