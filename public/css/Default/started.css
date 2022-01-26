@@ -7,13 +7,11 @@
 * {
   text-align: center;
   background-color: rgb(102, 102, 223);
-  color: black;
 }
 
 .logo {
   font-family: minecraftregular;
   font-size: 100px;
-  color: black;
 }
 
 .api-input {
@@ -23,11 +21,23 @@
   border: rgb(255, 255, 255) solid;
   border-radius: 10px;
   width: 200px;
-  color: black;
 }
-
 .api-input::placeholder {
   color: #757575;
+}
+
+.rgithub {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 130px;
+  margin-bottom: 19px;
+}
+.socials {
+  text-decoration: none;
+  font-family: "Dongle", sans-serif;
+  font-size: 30px;
+  color: white;
 }
 
 .versionDiv {
@@ -39,15 +49,18 @@
   font-weight: normal;
   font-size: 20px;
   margin-left: 10px;
-  color: black;
 }
-
+.githubSocialDiv {
+  position: fixed;
+  bottom: 0;
+  font-family: "Dongle", sans-serif;
+  text-align: center;
+}
 .themediv {
   position: fixed;
   bottom: 0;
   right: 0;
   font-family: "Dongle", sans-serif;
-  color: black;
 }
 #theme-select {
   background-color: white;
@@ -65,14 +78,12 @@
   padding-left: 10px;
   font-size: 30px;
   font-weight: normal;
-  color: black;
 }
 
 .soundH2 {
   padding-right: 105px;
   font-size: 30px;
   font-weight: normal;
-  color: black;
 }
 
 .tg {
@@ -133,10 +144,7 @@
   background-color: #f77777;
 }
 
-#nothing {
-  background-color: #dddfe7;
-}
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 980px) {
   .logo {
     font-size: 50px;
   }
@@ -149,5 +157,25 @@
 
   .close-btn {
     font-size: 8px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .tg td {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .tg th {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .rgithub {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 20px;
+    margin-bottom: 59px;
+  }
+  .soundH2 {
+    padding-right: 0px;
   }
 }
