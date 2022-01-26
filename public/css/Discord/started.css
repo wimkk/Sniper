@@ -7,7 +7,6 @@
 * {
   text-align: center;
   background-color: #36393f;
-  color: white;
 }
 
 .logo {
@@ -26,11 +25,23 @@
   color: white;
   width: 200px;
 }
+.rgithub {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 130px;
+  margin-bottom: 19px;
+}
+.socials {
+  text-decoration: none;
+  font-family: "Dongle", sans-serif;
+  font-size: 30px;
+  color: white;
+}
 
 .api-input::placeholder {
   color: white;
 }
-
 .versionDiv {
   position: fixed;
   bottom: 0;
@@ -50,16 +61,15 @@
   font-family: "Dongle", sans-serif;
 }
 #theme-select {
-  background-color: #40444b;
-  border: #535861 solid;
+  background-color: white;
+  border: none;
   font-size: 25px;
   font-family: "Dongle", sans-serif;
   border-radius: 10px;
   margin-right: 10px;
 }
 #theme-select option {
-  background-color: #40444b;
-  border: #535861 solid;
+  background-color: white;
 }
 
 .themeH2 {
@@ -89,7 +99,7 @@
 
 .tg th {
   background-color: #2f3136;
-  border-color: #40444b;
+  border-color: rgba(140, 140, 226, 0.596);
   font-family: "Dongle", sans-serif;
   padding-left: 30px;
   padding-right: 30px;
@@ -103,7 +113,7 @@
 
 .tg td {
   background-color: #2f3136;
-  border-color: #40444b;
+  border-color: rgba(140, 140, 226, 0.596);
   font-family: "Dongle", sans-serif;
   padding-left: 30px;
   padding-right: 30px;
@@ -138,7 +148,7 @@
   background-color: #636b77;
 }
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 980px) {
   .logo {
     font-size: 50px;
   }
@@ -151,5 +161,25 @@
 
   .close-btn {
     font-size: 8px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .tg td {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .tg th {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .rgithub {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 20px;
+    margin-bottom: 59px;
+  }
+  .soundH2 {
+    padding-right: 0px;
   }
 }
