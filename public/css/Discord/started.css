@@ -25,6 +25,7 @@
   color: white;
   width: 200px;
 }
+
 .rgithub {
   position: fixed;
   bottom: 0;
@@ -32,6 +33,7 @@
   margin-left: 130px;
   margin-bottom: 19px;
 }
+
 .socials {
   text-decoration: none;
   font-family: "Dongle", sans-serif;
@@ -163,6 +165,7 @@
     font-size: 8px;
   }
 }
+
 @media screen and (max-width: 465px) {
   .tg td {
     padding-left: 5px;

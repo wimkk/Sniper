@@ -97,9 +97,7 @@ async function StartSniper(key) {
                 smode = session['mode']
                 smap = session['map']
 
-
                 game = cleannames[sgametype]['clean']
-
 
                 if (smode == 'LOBBY') {
                     color = 'lobby'
@@ -133,12 +131,11 @@ function addrow(values) {
     if (Object.keys(snipes).length != 0) {
         snipes[values['name']] = {}
         snipes[values['name']].uuid = values['uuid']
-    }else{
+    } else {
         snipes[values['name']] = {}
         snipes[values['name']].uuid = values['uuid']
         StartSniper(key)
     }
-    
 
     var json_str = JSON.stringify(snipes)
     createCookie('snipes', json_str)
@@ -172,7 +169,6 @@ function addrow(values) {
     if (soundenabled) {
         sadd.play()
     }
-
 }
 
 function removerow(value) {
@@ -199,7 +195,6 @@ async function editrow(ign, sgame, smode, smap, scolor) {
         } else {
             paststatus = map.id
         }
-
 
         if (game.innerHTML.toString() != sgame.toString()) {
             change = true
@@ -247,17 +242,14 @@ async function UserInputFunction(e) {
         user = e.target.value
         if (/^[0-9a-zA-Z_]*$/.test(user)) {
             if (!JSON.stringify(snipes).toLowerCase().includes('"' + user.toLowerCase() + '"')) {
-
                 if (user.length >= 3) {
                     await getUUID(user).then(res => {
                         if (res) {
-
                             addrow({
                                 name: res['username'],
                                 uuid: res['uuid'],
                             })
                             e.target.value = ""
-
                         } else {
                             console.log(user + " was not found")
                         }
@@ -265,7 +257,6 @@ async function UserInputFunction(e) {
                 } else {
                     console.log("That username is to short")
                 }
-
             } else {
                 console.log(user + " already exists")
             }
@@ -296,7 +287,6 @@ async function getUSER(num) {
                     } else {
                         resolve(a)
                     }
-
                 }
             } catch (err) {
                 console.log(err)
