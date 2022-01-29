@@ -131,6 +131,7 @@
   background-color: #e74545;
   color: rgb(255, 255, 255);
   border-color: #e74545;
+  cursor: pointer;
 }
 
 #online {
