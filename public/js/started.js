@@ -44,10 +44,12 @@ if (getCookie('snipes')) {  //Set Snipes
 } else {
     var snipes = {
         'Arosity': {
-            uuid: '9c13cae91f344386a5a857dace6d765d'
+            uuid: '9c13cae91f344386a5a857dace6d765d',
+            enabled:false
         },
         'Wimk': {
             uuid: "8c1a7e32c5a342a29a103ff338a853f3",
+            enabled:true
         }
     }
     createCookie('snipes', JSON.stringify(snipes))
@@ -71,71 +73,81 @@ for (var ign in snipes) {
     addrow({
         name: ign,
         uuid: snipes[ign]['uuid'],
+        enabled:snipes[ign].enabled
     })
 }
 
+var toggles = 0;
+for (var ign in snipes) {
+    if(snipes[ign].enabled===false){
+        toggles++
+    }
+}
+
 async function StartSniper(key) {
-    while (Object.keys(snipes).length > 0) {
+    while (Object.keys(snipes).length > 0 && Object.keys(snipes).length-toggles!=0) {
         for (var ign in snipes) {
-            await getUSER(ign).then(async res => {
-                if (res == false) edit = false
-                if (res == false) return
-                edit = true
-                game = '---'
-                mode = '---'
-                map = '---'
-
-                session = res["session"]
-
-                if (session['online'] == false) {
-                    color = 'offline'
-                    return
-                }
-                color = 'lobby'
-
-                sgametype = session['gameType']
-                smode = session['mode']
-                smap = session['map']
-
-                game = cleannames[sgametype]['clean']
-
-                if (smode == 'LOBBY') {
-                    color = 'lobby'
-                    mode = 'Lobby'
-                    return
-                }
-
-                try {
-                    mode = cleannames[sgametype]['modes'][smode]['clean']
-                    if (!cleannames[sgametype]['modes'][smode]['nomap']) {
-                        map = smap
+            if(snipes[ign].enabled){
+                await getUSER(ign).then(async res => {
+                    if (res == false) edit = false
+                    if (res == false) return
+    
+                    edit = true
+                    game = '---'
+                    mode = '---'
+                    map = '---'
+    
+                    session = res["session"]
+    
+                    if (session['online'] == false) {
+                        color = 'offline'
+                        return
                     }
-
-                    color = 'online'
-                } catch (err) {
-                    console.log(sgametype + "     " + smode + "   " + smap)
+                    color = 'lobby'
+    
+                    sgametype = session['gameType']
+                    smode = session['mode']
+                    smap = session['map']
+    
+                    game = cleannames[sgametype]['clean']
+    
+                    if (smode == 'LOBBY') {
+                        color = 'lobby'
+                        mode = 'Lobby'
+                        return
+                    }
+    
+                    try {
+                        mode = cleannames[sgametype]['modes'][smode]['clean']
+                        if (!cleannames[sgametype]['modes'][smode]['nomap']) {
+                            map = smap
+                        }
+    
+                        color = 'online'
+                    } catch (err) {
+                        console.log(sgametype + "     " + smode + "   " + smap)
+                    }
+    
+                })
+                if (edit) {
+                    editrow(ign, game, mode, map, color)
+                    await sleep(505)
+                } else {
+                    await sleep(2000)
                 }
-
-            })
-            if (edit) {
-                editrow(ign, game, mode, map, color)
-                await sleep(505)
-            } else {
-                await sleep(2000)
             }
+            
         }
     }
 }
 
 function addrow(values) {
-    if (Object.keys(snipes).length != 0) {
-        snipes[values['name']] = {}
-        snipes[values['name']].uuid = values['uuid']
-    } else {
-        snipes[values['name']] = {}
-        snipes[values['name']].uuid = values['uuid']
+    if (!Object.keys(snipes).length != 0) {
         StartSniper(key)
-    }
+    } 
+    snipes[values['name']] = {}
+    snipes[values['name']].uuid = values['uuid']
+    snipes[values['name']].enabled = values.enabled
 
     var json_str = JSON.stringify(snipes)
     createCookie('snipes', json_str)
@@ -148,7 +160,13 @@ function addrow(values) {
     var cell4 = row.insertCell(3)
     var cell5 = row.insertCell(4)
 
-    cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button>"
+    if(snipes[values['name']].enabled){
+        check="checked"
+    }else{
+        check=""
+    }
+
+    cell1.innerHTML = "<button class='close-btn' onclick=removerow(this) id='closebutton'> X </button> <label  class='switch'> <input "+check+" onclick=togglerow(this) type='checkbox'> <span class='slider round'></span></label>"
     cell1.classList.add('close-th')
 
     cell2.innerHTML = values['name']
@@ -171,10 +189,28 @@ function addrow(values) {
     }
 }
 
+function togglerow(value) {
+    snipes[value.parentNode.parentNode.parentNode.id].enabled=value.checked
+    createCookie('snipes', JSON.stringify(snipes))
+   
+    if(value.checked){
+        toggles--
+        if(Object.keys(snipes).length-toggles==1){
+            StartSniper()
+        }
+    }else{
+        toggles++
+    }
+}
+
 function removerow(value) {
     var num = value.parentNode.parentNode.rowIndex
+    if(!table.rows[num].cells[0].children[1].children[0].checked){
+        toggles--
+    }
     table.deleteRow(num)
     delete snipes[value.parentNode.parentNode.id]
+    
     createCookie('snipes', JSON.stringify(snipes))
     if (soundenabled) {
         sremove.play()
@@ -248,6 +284,7 @@ async function UserInputFunction(e) {
                             addrow({
                                 name: res['username'],
                                 uuid: res['uuid'],
+                                enabled:true
                             })
                             e.target.value = ""
                         } else {
