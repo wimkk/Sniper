@@ -16,30 +16,53 @@
 
 <body>
     <div class="HYSNIPER-Area">
+
         <h1 class="logo">HYSNIPE</h1>
     </div>
-
     <div class="api-button">
-        <input spellcheck="false" autocomplete="off" placeholder="74d1d738-6326-2f8g-272g-a74hg9g49252" id="api-input"
-            class="api-input" type="text">
+        <input spellcheck="false" autocomplete="off" id="userinput" class="api-input" placeholder="Enter IGN"
+            type="text" maxlength="16">
     </div>
-    <p id='result'> </p>
+
+    <div class="table1">
+        <table class="tg" id="usertable">
+            <thead>
+                <tr>
+                    <td class="header">
+                        </th>
+                    <th class="header">IGN</th>
+                    <th class="header">Game</th>
+                    <th class="header">Mode</th>
+                    <th class="header">Map</th>
+                </tr>
+            </thead>
+            <tbody id="usertable">
+
+            </tbody>
+        </table>
+    </div>
     <div class="versionDiv">
         <h2 class="versionH2">
             <%= version %>
         </h2>
     </div>
     <div class="themediv">
-        <div class="themediv1">
+        <h2 class="soundH2">Sound
+            <label style="top: 10px;" class="switch">
+                <input id="soundbox" name="sound" type="checkbox">
+                <span class="slider"></span>
+            </label>
             <h2 class="themeH2">Select Theme
                 <select name="theme" id="theme-select">
                     <option class="selected-theme" value="Default">Default</option>
                     <option class="selected-theme" value="Discord">Discord</option>
                 </select>
+
             </h2>
-        </div>
+
+
     </div>
 </body>
 
 </html>
-<script src="/js/index.js"></script>
+<script src="/js/started.js"></script>
