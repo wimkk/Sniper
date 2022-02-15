@@ -74,17 +74,18 @@
   background-color: white;
 }
 
+element {
+  margin-bottom: 0px;
+}
 .themeH2 {
-  padding-left: 10px;
+  text-align: left;
   font-size: 30px;
-  color: white;
   font-weight: normal;
 }
 
 .soundH2 {
-  padding-right: 105px;
+  text-align: left;
   font-size: 30px;
-  color: white;
   font-weight: normal;
 }
 
@@ -150,50 +151,12 @@
 #nothing {
   background-color: #636b77;
 }
-
-@media screen and (max-width: 980px) {
-  .logo {
-    font-size: 50px;
-  }
-
-  .tg td {
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 18px;
-  }
-
-  .close-btn {
-    font-size: 8px;
-  }
-}
-
-@media screen and (max-width: 465px) {
-  .tg td {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .tg th {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .rgithub {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin-left: 20px;
-    margin-bottom: 59px;
-  }
-  .soundH2 {
-    padding-right: 0px;
-  }
-}
-
 .switch {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 18px;
-  background: #b9c9fe;
+  background: #36393f;
   top: 10px;
 }
 
@@ -247,4 +210,49 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media screen and (max-width: 980px) {
+  .logo {
+    font-size: 50px;
+  }
+
+  .tg td {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
+  .close-btn {
+    font-size: 8px;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 18px;
+    background: #36393f;
+    top: 3px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .tg td {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .tg th {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .rgithub {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 20px;
+    margin-bottom: 59px;
+  }
+  .soundH2 {
+    padding-right: 0px;
+  }
 }
